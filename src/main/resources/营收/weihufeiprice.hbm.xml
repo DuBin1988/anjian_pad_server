@@ -1,0 +1,19 @@
+<?xml version="1.0"  encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<!--维护费价格维护-->
+	<class entity-name="t_weihufeiprice" table="t_weihufeiprice" >
+		 <id name="ID" type="string">
+			<generator class="uuid.hex"></generator>
+		</id>
+		<!--开始日期-->
+		<property name="f_begindate" type="date"/>
+		<!--结束日期-->
+		<property name="f_enddate" type="date"/>
+		<!--每月价格-->
+		<property name="f_monthprice" type="double"/>
+     
+	</class>
+</hibernate-mapping>

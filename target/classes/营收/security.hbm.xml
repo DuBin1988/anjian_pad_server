@@ -1,0 +1,179 @@
+﻿<?xml version="1.0"  encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <!--安检-->
+    <class   entity-name="t_security" table="t_security" >
+		 <id name="ID" type="string">
+			<generator class="uuid.hex"></generator>
+		</id>
+	 	<!-- 安检编号 -->
+	 	<property name="f_securityid" type="string"/>
+	 	<!-- 用户ID号 -->
+	 	<property name="f_userid" type="string"/>
+	 	<!--用户姓名  -->
+	 	<property name="f_username" type="string"/>
+	 	<!-- 回访电话 -->
+	 	<property name="f_huifangtelephone" type="int"/>
+	 	<!-- 住址 -->
+	 	<property name="f_address" type="string"/>
+	 	<!-- 安检日期 -->
+	 	<property name="f_securitydate" type="string"/>
+	 	
+	 	<!--壁 挂 炉-->
+		<property name="f_wallhangboiler" type="boolean"/>
+		<!--壁挂炉品牌-->
+		<property name="f_wallhangboilerbrand" type="string"/>
+		<!-- 容量 -->
+		<property name="f_handboilersize" type="string"/>
+		
+		<!--灶具-->
+		<property name="f_kitchen" type="boolean"/>
+		<!--灶具品牌-->
+		<property name="f_kitchenbrand" type="string"/>
+		<!-- 容量 -->
+		<property name="f_content" type="string"/>
+		
+		<!--热 水 器-->
+		<property name="f_waterheater" type="boolean"/>
+		<!--热水器品牌-->
+		<property name="f_waterheaterbrand" type="string"/>
+		<!-- 容量 -->
+		<property name="f_heatersize" type="string"/>
+		
+		<!-- 气表型号 -->
+		<property name="f_metertype" type="string"/>
+		<!-- 左右表 -->
+		<property name="f_aroundmeter" type="string"/>
+		<!-- 表号 -->
+		<property name="f_meternumber" type="string"/>
+		
+		<!-- 气密性 -->
+		<!-- 气表漏气 -->
+		<property name="f_isbiaotilouqi" type="boolean"/>
+		<!-- 阀门漏气-->
+		<property name="f_isfamenlouqi" type="boolean"/>
+		<!-- 管道接口 -->
+		<property name="f_isguandaojiekou" type="boolean"/>
+		<!-- 如户内存在漏气现象 -->
+		<property name="f_ishuneicunzai" type="boolean"/>
+		
+		<!-- 户内设施 -->
+		<!-- 包表 -->
+		<property name="f_isbaobiao" type="boolean"/>
+		<!-- 包管 -->
+		<property name="f_isbaoguan" type="boolean"/>
+		<!-- 包阀 -->
+		<property name="f_isbaofa" type="boolean"/>
+		<!-- 改装热水器-->
+		<property name="f_isgaizhuangreshui" type="boolean"/>
+		<!-- 改装灶具 -->
+		<property name="f_isgaizhuangzaoju" type="boolean"/>
+		<!-- 改装燃具超年限 -->
+		<property name="f_isgaizhuangranju" type="boolean"/>
+		<!-- 单嘴阀改羊角阀用气 -->
+		<property name="f_isdanzufagai" type="boolean"/>
+		<!-- 私接热水器或壁挂炉 -->
+		<property name="f_issijiereshui" type="boolean"/>
+		<!-- 单嘴阀加软管再加羊角阀气意 -->
+		<property name="f_isdanzuifajia" type="boolean"/>
+		<!-- 软管穿墙、地、门窗 -->
+		<property name="f_isruanguanchuanqiang" type="boolean"/>
+		<!-- 软管超长 -->
+		<property name="f_isruanguanchaochang" type="boolean"/>
+		<!-- 软管老化 -->
+		<property name="f_ruanguanlaohua" type="boolean"/>
+		<!-- 存在管道锈蚀 -->
+		<property name="f_iscunzaiguandao" type="boolean"/>
+		<!-- 表体锈蚀 -->
+		<property name="f_isbiaotixiushi" type="boolean"/>
+		<!-- 私改管道 -->
+		<property name="f_issigaiguandao" type="boolean"/>
+		<!-- 开通风孔 -->
+		<property name="f_iskaitongfengkon" type="boolean"/>
+		<!-- 拆除后更换燃气具 -->
+		<property name="f_ischaichuhougeng" type="boolean"/>
+		<!-- "联系我公司燃气具服务中心整改 -->
+		<property name="f_islianxiwogong" type="boolean"/>
+		<!-- 移动燃气具 -->
+		<property name="f_isyidonranqiju" type="boolean"/>
+		<!-- 更换软管 -->
+		<property name="f_isgenghuanruanguan" type="boolean"/>
+		<!-- 拨打96777申请报修 -->
+		<property name="f_isbodashengqing" type="boolean"/>
+		<!-- 申请改管 -->
+		<property name="f_sishengqingaiguan" type="boolean"/>
+		
+		<!-- 用气环境 -->
+		<!-- 存在两种以上火源使用 -->
+		<property name="f_isliazhonhuoyuan" type="boolean"/>
+		<!-- 移除其他火源 -->
+		<property name="f_isyichuqita" type="boolean"/>
+		<!-- 存在电线缠绕 -->
+		<property name="f_isdianxianchanrao" type="boolean"/>
+		<!-- 吊挂置物 -->
+		<property name="f_isdiaoguazhiwu" type="boolean"/>
+		<!-- 移除电线 -->
+		<property name="f_isyichudianxian" type="boolean"/>
+		<!-- 移除吊挂物 -->
+		<property name="f_isyichudiaogua" type="boolean"/>
+		<!-- 自行整改 -->
+		<property name="f_iszixingzhenggai" type="boolean"/>
+		<!-- 清理杂物 -->
+		<property name="f_isqinglizawu" type="boolean"/>
+		<!-- 恢复厨房用途 -->
+		<property name="f_ishuifuchuang" type="boolean"/>
+		<!-- 燃气必须安装在厨房内 -->
+		<property name="f_isranqijubi" type="boolean"/>
+		<!-- 在厨房与客厅加间隔 -->
+		<property name="f_iszaichufangyu" type="boolean"/>
+		<!-- 厨房堆放杂物 -->
+		<property name="f_ischufangduifang" type="boolean"/>
+		<!-- 改变厨房用途 -->
+		<property name="f_isgaibianchufang" type="boolean"/>
+		<!-- 燃气具未安装在厨房内 -->
+		<property name="f_isranqijuwei" type="boolean"/>
+		<!-- 属于开发式厨房 -->
+		<property name="f_isshuyukaifa" type="boolean"/>
+		
+		<!-- 计量 -->
+		<!-- 机表读数 -->
+		<property name="f_isjibiaodushu" type="string"/>
+		<!-- 液晶读数 -->
+		<property name="f_isyejingdushuo" type="string"/>
+		<!-- 累购气量 -->
+		<property name="f_biaoleiji" type="string"/>
+		<!-- 基表死表 -->
+		<property name="f_isjibiaosibiao" type="boolean"/>
+		<!-- 智能掉气 -->
+		<property name="f_iszhinengdiaoqi" type="boolean"/>
+		<!-- 反装表 -->
+		<property name="f_isfanfengzhuang" type="boolean"/>
+		<!-- 智能不减气 -->
+		<property name="f_iszhinengbudiaoqi" type="boolean"/>
+		<!-- 断电不断阀 -->
+		<property name="f_isduandianbuduanfa" type="boolean"/>
+		<!-- 气量不符 -->
+		<property name="f_isqiliangbufu" type="boolean"/>
+		<!-- 液晶显示紊乱 -->
+		<property name="f_isyejingxianshi" type="boolean"/>
+		<!-- 输气不进 -->
+		<property name="f_isshuqibujin" type="boolean"/>
+		<!-- 重复插卡 -->
+		<property name="f_ischongfuchaka" type="boolean"/>
+		<!-- 是否对您家中进行以下安全常识宣传 -->
+		<property name="f_isanjianxuanchuan" type="boolean"/>
+		<!-- 是否教会您燃气设施安全的自检方法 -->
+		<property name="f_isteachzijian" type="boolean"/>
+		<!-- 是否对您发放宣传资料 -->
+		<property name="f_isfafangziliao" type="boolean"/>
+		<!-- 建议 -->
+		<property name="f_reconmegent" type="string"/>
+		<!-- 安检员 -->
+		<property name="f_securityperson" type="string"/>
+		
+		
+		
+	</class>
+</hibernate-mapping>

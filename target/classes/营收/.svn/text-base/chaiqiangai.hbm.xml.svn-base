@@ -1,0 +1,45 @@
+<?xml version="1.0"  encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <!--拆迁改信息-->
+	<class  entity-name="t_chaiqiangai" table="t_chaiqiangai" dynamic-update="true">
+		 <id name="ID" type="string">
+			<generator class="uuid.hex"></generator>
+		</id>
+		<!--用户ID-->
+		<property name="f_userid" type="string"/>
+		<!--用户姓名-->
+		<property name="f_username" type="string"/>
+		<!--地区代码-->
+		<property name="f_araecode" type="string"/>
+		<!--单位名称-->
+		<property name="f_unitname" type="string"/>
+		<!--楼号-->
+		<property name="f_floornum" type="int"/>
+		<!--用户地址-->
+		<property name="f_useraddress" type="string"/>
+		<!--电话号码-->
+		<property name="f_usertel" type="string"/>
+		<!--申请拆迁改原因-->
+		<property name="f_reason" type="string"/>
+		<!--申请日期-->
+		<property name="f_applydate" type="date"/>
+		<!--操作员-->
+		<property name="f_coperator" type="string"/>
+		<!--处理意见-->
+		<property name="f_handlingidea" type="string"/>
+		<!--拆迁改办理日期-->
+		<property name="f_cdate" type="date"/>
+		<!--参加拆迁改人员-->
+		<property name="f_joinpersons" type="string"/>		
+		<!--批准人-->
+		<property name="f_approveperson" type="string"/>	
+		<!--备注-->
+		<property name="f_remark" type="string"/>
+		
+		<!-- 查询用 -->
+		<property name="yi" type="int"/>
+	</class>
+</hibernate-mapping>

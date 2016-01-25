@@ -1,0 +1,49 @@
+1 气表型号管理添加
+   天顺  天顺表厂 卡表
+   
+2 BankFillGas
+  Card
+  FillCardAndPrint
+  FillGas
+  Payfee
+ 加入表型判断
+   
+2 发卡:
+  发卡信息编辑模板.html  
+  添加 天顺控件声明 ,页面添加单价字段
+  card.java添加 
+  天顺卡类型 cardType=5
+  tools.js  getCardType函数添加
+  else if(cardType == "天顺")
+    {
+       cardType="5";
+    }
+  makeCard函数添加
+    
+3 读卡
+  读卡信息编辑模板.htm 添加 天顺控件声明
+  系统 读卡卡型 添加参数 天顺
+  tools.js  pageReadCard
+
+3 交费信息编辑模板
+  
+4 公福卡表新开户编辑模板.htm
+  居民卡表新开户编辑模板.htm
+  工业卡表新开户编辑模板.htm
+  
+  
+5 团购上气信息编辑模板.htm
+
+6 工业用户交费信息编辑模板.htm
+
+7换卡信息编辑模板.htm
+
+21050187
+
+
+
+
+
+--未处理
+内部职工购气编辑模板.html
+卡表用户新开户编辑模板.html

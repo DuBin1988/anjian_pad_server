@@ -1,0 +1,129 @@
+﻿<?xml version="1.0"  encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping >
+	<!--抄表录入-->
+	<class entity-name="t_handplan" table="t_handplan" >
+		 <id name="ID" type="string">
+			<generator class="uuid.hex"></generator>
+		</id>
+		<!--滞纳金-->
+		<property name="f_zhinajin" type="double"/>
+		<!--抄表计划日期（财务日期）-->
+		<property name="f_handdate" type="string"/>
+		<!--机表滞纳金天数-->
+		<property name="f_zhinajintianshu" type="int"/>
+		<!--机表滞纳金开始计算日期-->
+		<property name="f_zhinajindate" type="date"/>
+		<!--用户编号-->
+		<property name="f_userid" type="string"/>
+		<!--用户姓名-->
+		<property name="f_username" type="string"/>
+		<!--卡号-->
+		<property name="f_cardid" type="string"/>	
+		<!--地址-->
+		<property name="f_address" type="string"/>
+		<!--门牌号 -->
+		<property name="f_apartment" type="string"/>
+		<!--小区-->
+		<property name="f_districtname" type="string"/>
+		<!--用户类型-->
+		<property name="f_usertype" type="string"/>
+		<!--用气性质-->
+		<property name="f_gasproperties" type="string"/>
+		<!--气价类型-->
+		<property name="f_gaspricetype" type="string"/>
+		<!--气价-->
+		<property name="f_gasprice" type="double"/>
+		<!--电话-->
+		<property name="f_phone" type="string"/>
+		<!--气表品牌-->
+		<property name="f_gaswatchbrand" type="string"/>
+		<!--气表编号-->
+		<property name="f_meternumber" type="string"/>
+		<!--气表型号-->
+		<property name="f_metertype" type="string"/>
+		<!--气表厂家-->
+		<property name="f_gasmetermanufacturers" type="string"/>
+		<!--表厂别名-->
+		<property name="f_aliasname" type="string"/>
+		<!--气表类型-->
+		<property name="f_gasmeterstyle" type="string"/>
+		<!--分公司名称-->
+		<property name="f_filiale" type="string"/>
+		<!--应交气量-->
+		<property name="oughtamount" type="double"/>
+		<!--临界内气量-->
+		<property name="ljqnl" type="double"/>
+		<!--临界气量-->
+		<property name="ljql" type="double"/>
+		<!--临界外气量-->
+		<property name="ljwql" type="double"/>
+		<!--临界内气价-->
+		<property name="linjienqj" type="double"/>
+		<!--临界外气价-->
+		<property name="linjiewqj" type="double"/>
+		<!--临界内用气金额-->
+		<property name="ljnyqje" type="double"/>
+		<!--临界外用气金额-->
+		<property name="ljwyqje" type="double"/>
+		<!--应交金额-->
+		<property name="oughtfee" type="double"/>
+		<!--本次抄表底数-->
+		<property name="lastrecord" type="double"/>
+		<!--上次抄表底数-->
+		<property name="lastinputgasnum" type="double"/>
+		<!--上次抄表日期-->
+		<property name="scinputdate" type="date"/>
+		<!--抄表日期-->
+		<property name="lastinputdate" type="date"/>
+		<!--交费截止日期-->
+		<property name="f_endjfdate" type="date"/>
+		<!--抄表 员-->
+		<property name="f_inputtor" type="string"/>
+		<!--门站 -->
+		<property name="f_menzhan" type="string"/>
+		<!--责任部门-->
+		<property name="f_zerenbumen" type="string"/>
+		<!-- 表安装位置 -->
+		<property name="f_weizhi" type="string"/>
+		<!--是否低保户-->
+		<property name="f_dibaohu" type="boolean"/>
+		
+        <!--上次账户余额-->
+		<property name="f_zhye" type="double"/>
+		<!--本次结算余额-->
+		<property name="f_bczhye" type="double"/>
+		<!--网点-->
+		<property name="f_network" type="string"/>
+		<!--操 作 员-->
+		<property name="f_operator" type="string"/>
+	    <!--操作时间-->
+		<property name="f_stime" type="time"/>
+		<!--日期-->
+		<property name="f_inputdate" type="date"/>
+		<!--yi-->
+		<property name="yi" type="int"/>
+		<!--临时底数属性-->
+		<property name="f_temp" type="double"/>
+		<!--选择属性-->
+		<property name="f_checked" type="string"/>
+		<!--用户性质-->
+		<property name="f_yhxz" type="string"/>
+		<!--旧系统标记-->
+		<property name="Flag" type="string"/>
+		<!--旧系统销售结账-->
+		<property name="XiaoShou_JE" type="double"/>
+
+		<!--是否缴费-->
+		<property name="shifoujiaofei" type="string"/>
+		<!--抄表单状态-->
+		<property name="f_state" type="string"/>
+		<!--是否已生成短信，是、否-->
+		<property name="f_sms" type="string"/>		
+	
+		<!--用户档案 -->
+		<many-to-one name="users" entity-name="t_userfiles"></many-to-one>
+	</class>
+</hibernate-mapping>

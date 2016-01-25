@@ -1,0 +1,13 @@
+ 
+
+1、使用时必须安装 lv85rte/lv85runtime.msi 
+
+2 拷贝hjic.ocx ,XIAN_RQ_SharedLib120407.dll,mwic.dll到c:\windows\system32目录下
+
+3.注册控件 regsvr32 C:\WINDOWS\system32\HJIC.ocx
+  **如果注册失败，可能是操作系统缺少dll，请将 某些系统缺少的dll下的dll文件拷贝至system32,
+
+
+4 控件默认使用串口1，如果需要使用其他串口，请讲gas.ini放到c:\下，并打开，修改
+文件内容0 串口1,1 串口2 ，依次类推
+

@@ -1,0 +1,4 @@
+1 雅黑字体
+拷贝到 c:\windows\fonts 目录下
+
+2 旧有控件配置文件 init.txt ，目录为c:\WINNT\system32 下,xp机器没有此目录，需手动建立

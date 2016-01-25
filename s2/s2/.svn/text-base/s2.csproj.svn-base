@@ -1,0 +1,1716 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{468080C4-FBD8-4AD2-BE5F-216E496A8FBB}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>s2</RootNamespace>
+    <AssemblyName>奥枫燃气营收系统V3</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>s2.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>s2.App</SilverlightAppEntry>
+    <TestPageFileName>s2TestPage.html</TestPageFileName>
+    <CreateTestPage>true</CreateTestPage>
+    <ValidateXaml>true</ValidateXaml>
+    <EnableOutOfBrowser>true</EnableOutOfBrowser>
+    <OutOfBrowserSettingsFile>Properties\OutOfBrowserSettings.xml</OutOfBrowserSettingsFile>
+    <UsePlatformExtensions>false</UsePlatformExtensions>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <LinkedServerProject>
+    </LinkedServerProject>
+    <Utf8Output>true</Utf8Output>
+    <ExpressionBlendVersion>12.0.41002.1</ExpressionBlendVersion>
+    <InBrowserSettingsFile>Properties\InBrowserSettings.xml</InBrowserSettingsFile>
+    <RequireInBrowserElevation>true</RequireInBrowserElevation>
+  </PropertyGroup>
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>B793F3A2E30072CB281C8B0A179E9F724C2B381D</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>aofengsign.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Expression.Controls" />
+    <Reference Include="Microsoft.Expression.Drawing" />
+    <Reference Include="Microsoft.Expression.Interactions">
+      <HintPath>C:\Program Files\Microsoft SDKs\Expression\Blend\Silverlight\v4.0\Libraries\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Prototyping.Interactivity">
+      <HintPath>C:\Program Files\Microsoft SDKs\Expression\Blend\Silverlight\v4.0\Libraries\Microsoft.Expression.Prototyping.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="System.Json, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Controls, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="System.Windows.Controls.Data, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data.Input, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.DataVisualization.Toolkit">
+      <HintPath>..\dlls\System.Windows.Controls.DataVisualization.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Input, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Input.Toolkit">
+      <HintPath>..\dlls\System.Windows.Controls.Input.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Layout.Toolkit">
+      <HintPath>..\dlls\System.Windows.Controls.Layout.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Navigation, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Toolkit, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\s2.Web\bin\System.Windows.Controls.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Toolkit.Internals">
+      <HintPath>..\dlls\System.Windows.Controls.Toolkit.Internals.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Data, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Interactivity, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Windows.Browser" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorPage.xaml.cs">
+      <DependentUpon>ErrorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frame.xaml.cs">
+      <DependentUpon>Frame.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ChildWindow1.xaml.cs">
+      <DependentUpon>ChildWindow1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\其他严重隐患类型明细表.xaml.cs">
+      <DependentUpon>其他严重隐患类型明细表.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\卡表特殊交费.xaml.cs">
+      <DependentUpon>卡表特殊交费.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\公告查看.xaml.cs">
+      <DependentUpon>公告查看.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\公告管理.xaml.cs">
+      <DependentUpon>公告管理.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\安检人员查看弹出界面.xaml.cs">
+      <DependentUpon>安检人员查看弹出界面.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Pages\安检人员查询.xaml.cs">
+      <DependentUpon>安检人员查询.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\安检员任务完成情况.xaml.cs">
+      <DependentUpon>安检员任务完成情况.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\安检地址管理.xaml.cs">
+      <DependentUpon>安检地址管理.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\安检汇总.xaml.cs">
+      <DependentUpon>安检汇总.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\安检结果查看.xaml.cs">
+      <DependentUpon>安检结果查看.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\安检计划.xaml.cs">
+      <DependentUpon>安检计划.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\安检计划下发.xaml.cs">
+      <DependentUpon>安检计划下发.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\安检计划执行情况.xaml.cs">
+      <DependentUpon>安检计划执行情况.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\安检计划查询.xaml.cs">
+      <DependentUpon>安检计划查询.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\安检计划生成.xaml.cs">
+      <DependentUpon>安检计划生成.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\小区安检查询.xaml.cs">
+      <DependentUpon>小区安检查询.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\抄表及安检.xaml.cs">
+      <DependentUpon>抄表及安检.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\拆迁管理.xaml.cs">
+      <DependentUpon>拆迁管理.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\查询.xaml.cs">
+      <DependentUpon>查询.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\查询弹出.xaml.cs">
+      <DependentUpon>查询弹出.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\燃气表故障明细.xaml.cs">
+      <DependentUpon>燃气表故障明细.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\机表票证补打.xaml.cs">
+      <DependentUpon>机表票证补打.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\校表.xaml.cs">
+      <DependentUpon>校表.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\民用报装建档.xaml.cs">
+      <DependentUpon>民用报装建档.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\漏气量查询.xaml.cs">
+      <DependentUpon>漏气量查询.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\用户和PAD关联.xaml.cs">
+      <DependentUpon>用户和PAD关联.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\用气地址.xaml.cs">
+      <DependentUpon>用气地址.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Pages\用气地址副本.xaml.cs">
+      <DependentUpon>用气地址副本.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\申通公司安检小区明细表.xaml.cs">
+      <DependentUpon>申通公司安检小区明细表.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\绩效评分.xaml.cs">
+      <DependentUpon>绩效评分.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\维修单查询.xaml.cs">
+      <DependentUpon>维修单查询.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\维修费欠费查询.xaml.cs">
+      <DependentUpon>维修费欠费查询.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\获取小区.xaml.cs">
+      <DependentUpon>获取小区.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\获取街道.xaml.cs">
+      <DependentUpon>获取街道.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\获取计划.xaml.cs">
+      <DependentUpon>获取计划.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\街道管理.xaml.cs">
+      <DependentUpon>街道管理.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\转费收费.xaml.cs">
+      <DependentUpon>转费收费.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\机表特殊交费.xaml.cs">
+      <DependentUpon>机表特殊交费.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\磁折补打.xaml.cs">
+      <DependentUpon>磁折补打.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\维管费价格维护.xaml.cs">
+      <DependentUpon>维管费价格维护.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\交易汇总明细.xaml.cs">
+      <DependentUpon>交易汇总明细.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\初始化购气.xaml.cs">
+      <DependentUpon>初始化购气.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\折子补打.xaml.cs">
+      <DependentUpon>折子补打.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\换卡管理.xaml.cs">
+      <DependentUpon>换卡管理.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\民用业务受理.xaml.cs">
+      <DependentUpon>民用业务受理.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\用户年用气量分析.xaml.cs">
+      <DependentUpon>用户年用气量分析.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\用户年用气量表.xaml.cs">
+      <DependentUpon>用户年用气量表.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\抄表撤销.xaml.cs">
+      <DependentUpon>抄表撤销.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\修改发票状态.xaml.cs">
+      <DependentUpon>修改发票状态.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\其他收费.xaml.cs">
+      <DependentUpon>其他收费.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\其他收费发票补打.xaml.cs">
+      <DependentUpon>其他收费发票补打.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\其他收费查看.xaml.cs">
+      <DependentUpon>其他收费查看.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\其他补气查看.xaml.cs">
+      <DependentUpon>其他补气查看.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\单位信息.xaml.cs">
+      <DependentUpon>单位信息.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\发卡售气发票补打.xaml.cs">
+      <DependentUpon>发卡售气发票补打.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\售气收费信息.xaml.cs">
+      <DependentUpon>售气收费信息.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\小区查看.xaml.cs">
+      <DependentUpon>小区查看.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\批量修改查询.xaml.cs">
+      <DependentUpon>批量修改查询.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\批量变更.xaml.cs">
+      <DependentUpon>批量变更.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Excel.xaml.cs">
+      <DependentUpon>Excel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UserControl1.xaml.cs">
+      <DependentUpon>UserControl1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\信息列表查询.xaml.cs">
+      <DependentUpon>信息列表查询.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\修改卡费.xaml.cs">
+      <DependentUpon>修改卡费.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\修改密码.xaml.cs">
+      <DependentUpon>修改密码.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\修改限购.xaml.cs">
+      <DependentUpon>修改限购.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\停用.xaml.cs">
+      <DependentUpon>停用.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\其他上传报表查询.xaml.cs">
+      <DependentUpon>其他上传报表查询.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\其他报表上传.xaml.cs">
+      <DependentUpon>其他报表上传.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\其他补气管理.xaml.cs">
+      <DependentUpon>其他补气管理.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\冲正.xaml.cs">
+      <DependentUpon>冲正.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\制初始化卡.xaml.cs">
+      <DependentUpon>制初始化卡.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\制工程卡.xaml.cs">
+      <DependentUpon>制工程卡.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\制檫除卡.xaml.cs">
+      <DependentUpon>制檫除卡.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\制清零卡.xaml.cs">
+      <DependentUpon>制清零卡.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\卡厅组长审核.xaml.cs">
+      <DependentUpon>卡厅组长审核.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\卡解锁.xaml.cs">
+      <DependentUpon>卡解锁.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\历史售气收费维护.xaml.cs">
+      <DependentUpon>历史售气收费维护.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\发折.xaml.cs">
+      <DependentUpon>发折.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\发票信息查看.xaml.cs">
+      <DependentUpon>发票信息查看.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\可疑用户报表.xaml.cs">
+      <DependentUpon>可疑用户报表.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\启用.xaml.cs">
+      <DependentUpon>启用.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\售气收费.xaml.cs">
+      <DependentUpon>售气收费.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\大厅变更.xaml.cs">
+      <DependentUpon>大厅变更.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage1.xaml.cs">
+      <DependentUpon>MainPage1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\总查询.xaml.cs">
+      <DependentUpon>总查询.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\抄表任务打印.xaml.cs">
+      <DependentUpon>抄表任务打印.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\抄表冲正.xaml.cs">
+      <DependentUpon>抄表冲正.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\抄表单生成.xaml.cs">
+      <DependentUpon>抄表单生成.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\抄表录入.xaml.cs">
+      <DependentUpon>抄表录入.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\抄表录入修改.xaml.cs">
+      <DependentUpon>抄表录入修改.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\抄表数据录入.xaml.cs">
+      <DependentUpon>抄表数据录入.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\抄表计划.xaml.cs">
+      <DependentUpon>抄表计划.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\报表页面.xaml.cs">
+      <DependentUpon>报表页面.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\换卡.xaml.cs">
+      <DependentUpon>换卡.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\换表收费.xaml.cs">
+      <DependentUpon>换表收费.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\换表查看.xaml.cs">
+      <DependentUpon>换表查看.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\换表管理.xaml.cs">
+      <DependentUpon>换表管理.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\掉气气量核对.xaml.cs">
+      <DependentUpon>掉气气量核对.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\掉气登记.xaml.cs">
+      <DependentUpon>掉气登记.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\掉气补气.xaml.cs">
+      <DependentUpon>掉气补气.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\掉气补气信息查看.cs" />
+    <Compile Include="Pages\擦除虚气量.xaml.cs">
+      <DependentUpon>擦除虚气量.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\收取非民用年费.xaml.cs">
+      <DependentUpon>收取非民用年费.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\日期时间.xaml.cs">
+      <DependentUpon>日期时间.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\机表交费.xaml.cs">
+      <DependentUpon>机表交费.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\机表冲正.xaml.cs">
+      <DependentUpon>机表冲正.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\机表抄表信息.xaml.cs">
+      <DependentUpon>机表抄表信息.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\机表缴费.xaml.cs">
+      <DependentUpon>机表缴费.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\档案修改字段.xaml.cs">
+      <DependentUpon>档案修改字段.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\档案变更.xaml.cs">
+      <DependentUpon>档案变更.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\民用一步建档.xaml.cs">
+      <DependentUpon>民用一步建档.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\民用多次录入.xaml.cs">
+      <DependentUpon>民用多次录入.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\民用小区管理.xaml.cs">
+      <DependentUpon>民用小区管理.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\民用抄表批量录入.xaml.cs">
+      <DependentUpon>民用抄表批量录入.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\民用抄表核查下账.xaml.cs">
+      <DependentUpon>民用抄表核查下账.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\民用机表建档.xaml.cs">
+      <DependentUpon>民用机表建档.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\民用档案变更.xaml.cs">
+      <DependentUpon>民用档案变更.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\民用营业厅发卡售气.xaml.cs">
+      <DependentUpon>民用营业厅发卡售气.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\气价类型变更.xaml.cs">
+      <DependentUpon>气价类型变更.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\清零.xaml.cs">
+      <DependentUpon>清零.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\滞纳金登录.xaml.cs">
+      <DependentUpon>滞纳金登录.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\用户事物过户管理.xaml.cs">
+      <DependentUpon>用户事物过户管理.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\用户档案信息.xaml.cs">
+      <DependentUpon>用户档案信息.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\申请登记.xaml.cs">
+      <DependentUpon>申请登记.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\申请登记工商.xaml.cs">
+      <DependentUpon>申请登记工商.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\票证补打.xaml.cs">
+      <DependentUpon>票证补打.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\稽查任务删除.xaml.cs">
+      <DependentUpon>稽查任务删除.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\稽查任务查看.xaml.cs">
+      <DependentUpon>稽查任务查看.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\稽查未住置空.xaml.cs">
+      <DependentUpon>稽查未住置空.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\稽查生成.xaml.cs">
+      <DependentUpon>稽查生成.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\稽查结果录入.xaml.cs">
+      <DependentUpon>稽查结果录入.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\稽查结果批量录入.xaml.cs">
+      <DependentUpon>稽查结果批量录入.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\管理员登录.xaml.cs">
+      <DependentUpon>管理员登录.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\结账报表.xaml.cs">
+      <DependentUpon>结账报表.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\维修人确认.xaml.cs">
+      <DependentUpon>维修人确认.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\维修费.xaml.cs">
+      <DependentUpon>维修费.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\维护费列表信息.xaml.cs">
+      <DependentUpon>维护费列表信息.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\维护费报表.xaml.cs">
+      <DependentUpon>维护费报表.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\维护费明细报表.xaml.cs">
+      <DependentUpon>维护费明细报表.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\综合查询.xaml.cs">
+      <DependentUpon>综合查询.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\网点收费汇总报表.xaml.cs">
+      <DependentUpon>网点收费汇总报表.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\网点明细.xaml.cs">
+      <DependentUpon>网点明细.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\网点维护费.xaml.cs">
+      <DependentUpon>网点维护费.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\苍南民用售气收费.xaml.cs">
+      <DependentUpon>苍南民用售气收费.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\营业厅月汇总.xaml.cs">
+      <DependentUpon>营业厅月汇总.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\营业厅结账.xaml.cs">
+      <DependentUpon>营业厅结账.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\营业厅销售汇总.xaml.cs">
+      <DependentUpon>营业厅销售汇总.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\补卡.xaml.cs">
+      <DependentUpon>补卡.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\补卡信息.xaml.cs">
+      <DependentUpon>补卡信息.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\补卡发票补打.xaml.cs">
+      <DependentUpon>补卡发票补打.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\补售气收费记录.xaml.cs">
+      <DependentUpon>补售气收费记录.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\补折.xaml.cs">
+      <DependentUpon>补折.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\补气.xaml.cs">
+      <DependentUpon>补气.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\补气报表查询.xaml.cs">
+      <DependentUpon>补气报表查询.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\补气查看.xaml.cs">
+      <DependentUpon>补气查看.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\补磁管理.xaml.cs">
+      <DependentUpon>补磁管理.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\表灶销售费.xaml.cs">
+      <DependentUpon>表灶销售费.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\订正气表品牌.xaml.cs">
+      <DependentUpon>订正气表品牌.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\读卡.xaml.cs">
+      <DependentUpon>读卡.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\财务报表.xaml.cs">
+      <DependentUpon>财务报表.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\网点汇总.xaml.cs">
+      <DependentUpon>网点汇总.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\超用发卡售气.xaml.cs">
+      <DependentUpon>超用发卡售气.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\超用收费.xaml.cs">
+      <DependentUpon>超用收费.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\超用气延期交费设置.xaml.cs">
+      <DependentUpon>超用气延期交费设置.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\超用气报表.xaml.cs">
+      <DependentUpon>超用气报表.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\运营经理审核.xaml.cs">
+      <DependentUpon>运营经理审核.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\选择转换.xaml.cs">
+      <DependentUpon>选择转换.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\通气.xaml.cs">
+      <DependentUpon>通气.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\部门经理审核.xaml.cs">
+      <DependentUpon>部门经理审核.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\重新发卡.xaml.cs">
+      <DependentUpon>重新发卡.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\银行冲正.xaml.cs">
+      <DependentUpon>银行冲正.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\银行冲正记录.xaml.cs">
+      <DependentUpon>银行冲正记录.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\银行售气收费.xaml.cs">
+      <DependentUpon>银行售气收费.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\银行售气收费信息.xaml.cs">
+      <DependentUpon>银行售气收费信息.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\银行机表交费.xaml.cs">
+      <DependentUpon>银行机表交费.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\银行票证补打.xaml.cs">
+      <DependentUpon>银行票证补打.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\银行票证补打记录.xaml.cs">
+      <DependentUpon>银行票证补打记录.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\银行网点收费汇总报表.xaml.cs">
+      <DependentUpon>银行网点收费汇总报表.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\销户.xaml.cs">
+      <DependentUpon>销户.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\非民用一步建档.xaml.cs">
+      <DependentUpon>非民用一步建档.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\非民用小区管理.xaml.cs">
+      <DependentUpon>非民用小区管理.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\非民用抄表.xaml.cs">
+      <DependentUpon>非民用抄表.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\非民用抄表任务删除.xaml.cs">
+      <DependentUpon>非民用抄表任务删除.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\非民用抄表任务查看.xaml.cs">
+      <DependentUpon>非民用抄表任务查看.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\非民用抄表信息列表.xaml.cs">
+      <DependentUpon>非民用抄表信息列表.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\非民用抄表录入.xaml.cs">
+      <DependentUpon>非民用抄表录入.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\非民用抄表批量录入.xaml.cs">
+      <DependentUpon>非民用抄表批量录入.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\非民用抄表生成.xaml.cs">
+      <DependentUpon>非民用抄表生成.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\非民用机表建档.xaml.cs">
+      <DependentUpon>非民用机表建档.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\非流程超用气收费.xaml.cs">
+      <DependentUpon>非流程超用气收费.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\领导.xaml.cs">
+      <DependentUpon>领导.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\领导查询.xaml.cs">
+      <DependentUpon>领导查询.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\高级管理员登录.xaml.cs">
+      <DependentUpon>高级管理员登录.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Program\Behaviors\BatchTransformAction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Program\Behaviors\CheckedAction.cs" />
+    <Compile Include="Program\Behaviors\CreateReceiptAction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Program\Behaviors\DataGridDoubleClickBehavior.cs" />
+    <Compile Include="Program\Behaviors\MouseClickManager.cs" />
+    <Compile Include="Program\Behaviors\SaveForUserAction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Program\Converters\StartConverter.cs" />
+    <Compile Include="Program\Converters\WidthConverter.cs" />
+    <Compile Include="Program\ObjectTools\DateTimePicker.xaml.cs">
+      <DependentUpon>DateTimePicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Program\ObjectTools\GasADObject.cs" />
+    <Compile Include="Program\ObjectTools\NewGeneralICCard.cs" />
+    <Compile Include="Program\ObjectTools\RXCard.cs" />
+    <Compile Include="Program\ObjectTools\SYICCard.cs" />
+    <Compile Include="Program\ObjectTools\XYZZObj.cs" />
+    <Compile Include="SampleData\SampleDataSource\SampleDataSource.xaml.cs">
+      <DependentUpon>SampleDataSource.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Page Include="ErrorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LogConfig.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\ChildWindow1.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\其他严重隐患类型明细表.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\卡表特殊交费.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\公告查看.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\公告管理.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\安检人员查看弹出界面.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\安检人员查询.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\安检员任务完成情况.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\安检地址管理.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\安检汇总.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\安检结果查看.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\安检计划.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\安检计划下发.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\安检计划执行情况.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\安检计划查询.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\安检计划生成.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\小区安检查询.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\抄表及安检.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\拆迁管理.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\查询.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\查询弹出.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\燃气表故障明细.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\机表票证补打.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\校表.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\民用报装建档.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\漏气量查询.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\用户和PAD关联.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\用气地址.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\用气地址副本.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\申通公司安检小区明细表.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\绩效评分.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\维修单查询.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\维修费欠费查询.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\获取小区.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\获取街道.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\获取计划.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\街道管理.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\转费收费.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\机表特殊交费.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\磁折补打.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\维管费价格维护.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\交易汇总明细.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\初始化购气.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\折子补打.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\换卡管理.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\民用业务受理.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\用户年用气量分析.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\用户年用气量表.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\抄表撤销.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\修改发票状态.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\其他收费.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\其他收费发票补打.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\其他收费查看.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\其他补气查看.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\单位信息.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\发卡售气发票补打.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\售气收费信息.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\大厅报建.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\小区查看.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\批量修改查询.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\批量变更.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Excel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\UserControl1.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\信息列表查询.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\修改卡费.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\修改密码.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\修改限购.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\停用.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\其他上传报表查询.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\其他报表上传.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\其他补气管理.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\冲正.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\制初始化卡.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\制工程卡.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\制檫除卡.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\制清零卡.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\卡厅组长审核.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\卡解锁.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\历史售气收费维护.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\发折.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\发票信息查看.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\可疑用户报表.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\启用.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\售气收费.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\大厅变更.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainPage1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\总查询.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\抄表任务打印.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\抄表冲正.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\抄表单生成.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\抄表录入.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\抄表录入修改.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\抄表数据录入.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\抄表计划.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\报表页面.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\换卡.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\换表收费.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\换表查看.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\换表管理.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\掉气气量核对.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\掉气登记.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\掉气补气.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\掉气补气信息查看.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\擦除虚气量.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\收取非民用年费.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\日期时间.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\机表交费.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\机表冲正.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\机表抄表信息.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\机表缴费.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\档案修改字段.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\档案变更.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\民用一步建档.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\民用多次录入.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\民用小区管理.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\民用抄表批量录入.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\民用抄表核查下账.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\民用机表建档.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\民用档案变更.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\民用营业厅发卡售气.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\气价类型变更.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\清零.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\滞纳金登录.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\用户事物过户管理.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\用户档案信息.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\申请登记.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\申请登记工商.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\票证补打.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\稽查任务删除.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\稽查任务查看.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\稽查未住置空.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\稽查生成.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\稽查结果录入.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\稽查结果批量录入.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\管理员登录.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\结账报表.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\维修人确认.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\维修费.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\维护费列表信息.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\维护费报表.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\维护费明细报表.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\综合查询.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\网点收费汇总报表.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\网点明细.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\网点维护费.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\苍南民用售气收费.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\营业厅月汇总.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\营业厅结账.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\营业厅销售汇总.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\补卡.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\补卡信息.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\补卡发票补打.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\补售气收费记录.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\补折.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\补气.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\补气报表查询.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\补气查看.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\补磁管理.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\表灶销售费.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\订正气表品牌.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\读卡.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\财务报表.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\网点汇总.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\超用发卡售气.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\超用收费.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\超用气延期交费设置.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\超用气报表.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\运营经理审核.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\选择转换.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\通气.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\部门经理审核.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\重新发卡.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\银行冲正.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\银行冲正记录.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\银行售气收费.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\银行售气收费信息.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\银行机表交费.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\银行票证补打.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\银行票证补打记录.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\银行网点收费汇总报表.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\销户.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\非民用一步建档.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\非民用小区管理.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\非民用抄表.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\非民用抄表任务删除.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\非民用抄表任务查看.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\非民用抄表信息列表.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\非民用抄表录入.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\非民用抄表批量录入.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\非民用抄表生成.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\非民用机表建档.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\非流程超用气收费.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\领导.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\领导查询.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\高级管理员登录.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Program\ObjectTools\DateTimePicker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Properties\DesignTimeResources1.xaml" Condition="'$(DesignTime)'=='true' OR ('$(SolutionPath)'!='' AND Exists('$(SolutionPath)') AND '$(BuildingInsideVisualStudio)'!='true' AND '$(BuildingInsideExpressionBlend)'!='true')">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <ContainsDesignTimeResources>true</ContainsDesignTimeResources>
+    </Page>
+    <Page Include="ResourceDictionary1.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ResourceDictionary_sale.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SampleData\SampleDataSource\SampleDataSource.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="aofengsign.pfx" />
+    <None Include="s2_TemporaryKey.pfx" />
+    <None Include="SampleData\SampleDataSource\SampleDataSource.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon\ic卡管理.png" />
+    <Resource Include="icon\事务管理.png" />
+    <Resource Include="icon\修改密码.png" />
+    <Resource Include="icon\停用.png" />
+    <Resource Include="icon\充正.png" />
+    <Resource Include="icon\其他补气.png" />
+    <Resource Include="icon\制初始化卡.png" />
+    <Resource Include="icon\制工程卡.png" />
+    <Resource Include="icon\制檫除卡.png" />
+    <Resource Include="icon\制清零卡.png" />
+    <Resource Include="icon\发卡售气.png" />
+    <Resource Include="icon\启用.png" />
+    <Resource Include="icon\售气收费.png" />
+    <Resource Include="icon\小区管理.png" />
+    <Resource Include="icon\工具卡.png" />
+    <Resource Include="icon\手抄表管理.png" />
+    <Resource Include="icon\换表收费.png" />
+    <Resource Include="icon\换表管理.png" />
+    <Resource Include="icon\换表补气.png" />
+    <Resource Include="icon\查询.png" />
+    <Resource Include="icon\档案变更.png" />
+    <Resource Include="icon\注销.png" />
+    <Resource Include="icon\灶表销售费.png" />
+    <Resource Include="icon\用户建档.png" />
+    <Resource Include="icon\票据补打.png" />
+    <Resource Include="icon\维修费.png" />
+    <Resource Include="icon\补卡.png" />
+    <Resource Include="icon\读卡.png" />
+    <Resource Include="icon\购气折管理.png" />
+    <Resource Include="icon\过户.png" />
+    <Resource Include="icon\重新发卡.png" />
+    <Resource Include="Images\btnbg01.png" />
+    <Resource Include="Images\btnbg02.png" />
+    <Resource Include="Images\btnbg03.png" />
+    <Resource Include="Images\FindLogin01.png" />
+    <Resource Include="Images\FindLogin02.png" />
+    <Resource Include="Images\FindLogin03.png" />
+    <Resource Include="Images\Find查询1.png" />
+    <Resource Include="Images\Find查询2.png" />
+    <Resource Include="Images\Find查询3.png" />
+    <Resource Include="Images\Find查询a1.png" />
+    <Resource Include="Images\Find查询a2.png" />
+    <Resource Include="Images\Find查询a3.png" />
+    <Resource Include="Images\ic卡.png" />
+    <Resource Include="Images\loginimage.jpg" />
+    <Resource Include="Images\mainbgimage.jpg" />
+    <Resource Include="Images\noneicon.png" />
+    <Resource Include="Images\tabbgimage.png" />
+    <Resource Include="Images\topcloseicon.png" />
+    <Resource Include="Images\主界面背景.jpg" />
+    <Resource Include="Images\事务管理.png" />
+    <Resource Include="Images\信息列表.png" />
+    <Resource Include="Images\关闭按钮.png" />
+    <Resource Include="Images\其他管理.png" />
+    <Resource Include="Images\分析统计.png" />
+    <Resource Include="Images\听录音1.png" />
+    <Resource Include="Images\听录音2.png" />
+    <Resource Include="Images\听录音3.png" />
+    <Resource Include="Images\基础数据管理.png" />
+    <Resource Include="Images\安检.png" />
+    <Resource Include="Images\工业周检.png" />
+    <Resource Include="Images\工业维管费.png" />
+    <Resource Include="Images\抄表管理.png" />
+    <Resource Include="Images\报修.png" />
+    <Resource Include="Images\报表.png" />
+    <Resource Include="Images\报表管理.png" />
+    <Resource Include="Images\按钮发光背景.png" />
+    <Resource Include="Images\播放.png" />
+    <Resource Include="Images\收费管理.png" />
+    <Resource Include="Images\明细查询.png" />
+    <Resource Include="Images\最后一帧.jpg" />
+    <Resource Include="Images\档案管理.png" />
+    <Resource Include="Images\用户管理.png" />
+    <Resource Include="Images\系统管理.png" />
+    <Resource Include="Images\读卡.png" />
+    <Resource Include="image\loginbg.jpg" />
+    <Resource Include="image\loginbg.png" />
+    <Resource Include="image\loginbottombg.png" />
+    <Resource Include="image\loginidicon.png" />
+    <Resource Include="image\loginpassicon.png" />
+    <Resource Include="image\logo.png" />
+    <Resource Include="image\menubtn01.png" />
+    <Resource Include="image\menubtn02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\OutOfBrowserSettings.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\InBrowserSettings.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\读卡loading.png" />
+    <Resource Include="Images\地址管理.png" />
+    <Resource Include="Images\查询.png" />
+    <Resource Include="Images\安检管理.png" />
+    <Resource Include="imagebtn\保存.png" />
+    <Resource Include="imagebtn\删除图标.png" />
+    <Resource Include="imagebtn\发初始化卡.png" />
+    <Resource Include="imagebtn\密码修改.png" />
+    <Resource Include="imagebtn\打印.png" />
+    <Resource Include="imagebtn\提交.png" />
+    <Resource Include="imagebtn\撤销.png" />
+    <Resource Include="imagebtn\新增用户.png" />
+    <Resource Include="imagebtn\查询.png" />
+    <Resource Include="imagebtn\添加.png" />
+    <Resource Include="imagebtn\添加设备.png" />
+    <Resource Include="imagebtn\结账.png" />
+    <Resource Include="imagebtn\补初始化卡.png" />
+    <Resource Include="imagebtn\补够气卡.png" />
+    <Resource Include="imagebtn\读卡loading.png" />
+    <Resource Include="imagebtn\重打够气票.png" />
+    <Content Include="favicon.ico" />
+    <Content Include="Images\loginbgimage.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\restV2\s2\s2DLL\s2DLL.csproj">
+      <Project>{755bc4b3-86b8-4126-82c9-4f1bc5c8b07e}</Project>
+      <Name>s2DLL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

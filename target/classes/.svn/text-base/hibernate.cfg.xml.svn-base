@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+
+	<session-factory>
+
+			<!-- JDBC connection pool (use the built-in) -->
+		<property name="connection.pool_size">2</property>
+		
+		<!-- SQL dialect -->
+		<property name="dialect">org.hibernate.dialect.OracleDialect</property>
+
+
+	
+		<!-- Enable Hibernate's automatic session context management -->
+		<property name="current_session_context_class">thread</property>
+
+		<!-- Disable the second-level cache  -->
+		<property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+
+		<!-- Echo all executed SQL to stdout -->
+		<property name="show_sql">true</property>
+		<property name="default_schema">anjian</property>
+
+		<!-- Drop and re-create the database schema on startup -->
+		<property name="hbm2ddl.auto">update</property>
+		 
+		
+        <!-- 下面开始描述数据库信息 -->
+        <!-- 参数信息 -->
+        <mapping resource="系统/param.hbm.xml" />
+        <!-- 系统用户表信息 -->
+        <mapping resource="系统/user.hbm.xml"/>
+        <!-- 人员角色信息 -->
+        <mapping resource="系统/role.hbm.xml"/>
+         <!--系统组织表信息 -->
+        <mapping resource="系统/organization.hbm.xml"/>
+        <!-- 编号 -->
+        <mapping resource="系统/serial.hbm.xml"/>
+        <!-- 单值管理 -->
+        <mapping resource="系统/singlevalue.hbm.xml"/>
+        <!-- 文件图片实体 -->
+        <mapping resource="系统/Blob.hbm.xml"/>
+        <!-- 气表品牌实体 -->
+        <mapping resource="系统/qibiao.hbm.xml"/>
+   	    <!--用气性质-->
+   	    <mapping resource="系统/usegas.hbm.xml" />  
+   	    <!--混合气价-->
+   	    <mapping resource="系统/hunhe.hbm.xml" />   
+   	    <!--卡编号-->
+   	    <mapping resource="系统/cardreset.hbm.xml" />
+   	    <!--民用壁挂炉采暖季参数-->
+   	    <mapping resource="系统/cainuanji.hbm.xml" />
+   	    <!--非民用限购参数-->
+   	    <mapping resource="系统/gsxiangou.hbm.xml" />
+   	    
+   	    <!-- 街道 -->
+   	    <mapping resource="营收/road.hbm.xml"/>
+   	    <!-- 小区 -->
+   	    <mapping resource="营收/area.hbm.xml"/>
+   	    <!-- 地址 -->
+   	    <mapping resource="营收/gasaddress.hbm.xml"/>
+   	    <!-- 临时地址 -->
+   	    <mapping resource="营收/gasaddress1.hbm.xml"/>
+   	    
+        <!-- 安检计划-->
+        <mapping resource="安检/checkplan.hbm.xml"/>
+        <!-- 安检计划项-->
+        <mapping resource="安检/checkplanline.hbm.xml"/>
+		<!--入户安检-->
+        <mapping resource="安检/inspection.hbm.xml"/>
+		<!--入户安检详情-->
+        <mapping resource="安检/inspectionline.hbm.xml"/>
+		<!--用户档案-->
+        <mapping resource="安检/userarchive.hbm.xml"/>
+        <!--维修结果-->
+        <mapping resource="安检/repairresult.hbm.xml"/>
+        <!--公告-->
+        <mapping resource="营收/gonggao.hbm.xml"/>
+ 		
+ 		
+	</session-factory>
+  
+</hibernate-configuration>

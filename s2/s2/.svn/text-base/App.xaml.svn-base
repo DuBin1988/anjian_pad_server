@@ -1,0 +1,61 @@
+﻿<Application xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+             x:Class="s2.App"
+             xmlns:a="clr-namespace:Com.Aote.Attachs;assembly=s2DLL"			 
+			 xmlns:b="clr-namespace:Com.Aote.Behaviors;assembly=s2DLL"
+             xmlns:o="clr-namespace:Com.Aote.ObjectTools;assembly=s2DLL"
+             xmlns:SampleData="clr-namespace:Expression.Blend.SampleData.SampleDataSource" 
+             xmlns:m="clr-namespace:Com.Aote.Marks;assembly=s2DLL"
+          
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+             >
+    <Application.Resources>
+        <!-- 应该在此定义应用程序级的资源。-->
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="LogConfig.xaml"></ResourceDictionary>
+				<ResourceDictionary Source="ResourceDictionary1.xaml"/>
+				<ResourceDictionary Source="ResourceDictionary_sale.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        
+        </ResourceDictionary>
+
+        
+        
+        <o:DataPagerConverter x:Key="DataPagerConverter" />
+
+        <!-- 黄河服务器 
+        <o:WebClientInfo x:Key="ldapaddress" BaseAddress="http://60.214.209.189:83/safecheckres/rs"/>
+        <o:WebClientInfo x:Key="serveraddress"  BaseAddress="http://60.214.209.189:83/safecheckres/rs"/>
+        <o:WebClientInfo x:Key="server"  BaseAddress="http://60.214.209.189:83/safecheckDB/rs"/>
+        <o:WebClientInfo x:Key="dbclient"  BaseAddress="http://60.214.209.189:83/safecheckDB/rs/db"/>
+        <o:WebClientInfo x:Key="xygasclient"  BaseAddress="http://60.214.209.189/rs/xygas"/>
+        <o:WebClientInfo x:Key="saveuser" BaseAddress="http://60.214.209.189:83/safecheckres/rs/user/entity"/>
+        <o:WebClientInfo x:Key="reportclient" BaseAddress="http://60.214.209.189:83/safecheckres/jsp/pagenologin.jsp?"/>
+        -->
+        
+        <!-- 本机测试 -->
+        <o:WebClientInfo x:Key="ldapaddress" BaseAddress="http://127.0.0.1:83/rs"/>
+        <o:WebClientInfo x:Key="serveraddress"  BaseAddress="http://127.0.0.1:83/rs"/>
+        <o:WebClientInfo x:Key="server"  BaseAddress="http://127.0.0.1:8080/rs"/>
+        <o:WebClientInfo x:Key="dbclient"  BaseAddress="http://127.0.0.1:8080/rs/db"/>
+        <o:WebClientInfo x:Key="reportclient2" BaseAddress="http://127.0.0.1:8080/"/>
+        <o:WebClientInfo x:Key="xygasclient"  BaseAddress="http://127.0.0.1/rs/xygas"/>
+        <o:WebClientInfo x:Key="saveuser" BaseAddress="http://127.0.0.1:83/rs/user/entity"/>
+        <o:WebClientInfo x:Key="reportclient" BaseAddress="http://127.0.0.1:83/jsp/pagenologin.jsp?"/>
+		<o:WebClientInfo x:Key="files_url"  BaseAddress="http://127.0.0.1:8080/rs/BMPService"/>
+        
+        
+        <!--托管服务器
+        <o:WebClientInfo x:Key="ldapaddress" BaseAddress="http://125.76.225.223:3000/CAAnJianRes/rs"/>
+        <o:WebClientInfo x:Key="serveraddress"  BaseAddress="http://125.76.225.223:3000/CAAnJianRes/rs"/>
+        <o:WebClientInfo x:Key="dbclient"  BaseAddress="http://125.76.225.223:3000/CAAnJianDB/rs/db"/>
+        <o:WebClientInfo x:Key="xygasclient"  BaseAddress="http://125.76.225.223:3000/rs/xygas"/>
+        <o:WebClientInfo x:Key="saveuser" BaseAddress="http://125.76.225.223:3000/CAAnJianRes/rs/user/entity"/>
+        <o:WebClientInfo x:Key="reportclient" BaseAddress="http://125.76.225.223:3000/CAAnJianRes/jsp/pagenologin.jsp?"/>
+        -->
+   
+    </Application.Resources>
+ 
+</Application>

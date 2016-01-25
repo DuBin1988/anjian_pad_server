@@ -1,0 +1,175 @@
+﻿<UserControl x:Class="s2.Pages.申通公司安检小区明细表"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:a="clr-namespace:Com.Aote.Attachs;assembly=s2DLL"
+    xmlns:o="clr-namespace:Com.Aote.ObjectTools;assembly=s2DLL"
+    xmlns:b="clr-namespace:Com.Aote.Behaviors;assembly=s2DLL"
+	xmlns:c="clr-namespace:Com.Aote.Controls;assembly=s2DLL"
+    xmlns:m="clr-namespace:Com.Aote.Marks;assembly=s2DLL"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+    xmlns:data="clr-namespace:System.Windows.Data;assembly=System.Windows"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+	xmlns:System="clr-namespace:System;assembly=mscorlib"
+	xmlns:oo="clr-namespace:Com.Aote.ObjectTools"
+    xmlns:prim="clr-namespace:System.Windows.Controls.Primitives;assembly=System.Windows.Controls.Data"
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="1750">
+    <UserControl.Resources>
+        <Style TargetType="prim:DataGridColumnHeader" x:Key="aHeaderStyle">
+            <Setter Property="ContentTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" TextWrapping="Wrap" FontFamily="Verdana" FontSize="12" TextAlignment="Center" HorizontalAlignment="Center"/>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot" Background="#FFDBE4F3" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="25" />
+            <RowDefinition  Height="*"/>
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+        <!--最顶上的表头-->
+        <Grid  Grid.Row="0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="申 通 公 司 安 检 小 区 明 细 表" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+        <!--各种查询控件-->
+        <Grid  Grid.Row="1">
+            <StackPanel  Orientation="Horizontal" HorizontalAlignment="Left">
+                <TextBlock Text=" 安检时间: " Height="24" Width="60" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                <sdk:DatePicker Name="start_time" Margin="0"  Height="25" VerticalAlignment="Stretch"/>
+                <TextBlock Text=" 到 " Height="20" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                <sdk:DatePicker Name="end_time" Margin="0"  Height="25" VerticalAlignment="Stretch"/>
+                <TextBlock Text=" " Height="24" Width="30"/>
+                <Button Name="sou_tj" Height="24" Width="60" Content="查询"  Click="sou_tj_Click"/>
+              <!--  <Button x:Name="outputbutton" Height="24" Width="48" Content="导出" Margin="20,1,0,0"  Click="{m:Exp Str=toExcel.ToExcel()}"/> -->
+                <HyperlinkButton  Content="导出"   Height="24" Width="48"  NavigateUri="{m:Exp Str=$\{server.BaseAddress\}/db/excel/\{pl.HQL\}/\{check_roplo.ItemsSource.Count\}/ARRIVAL_TIME:安检时间|UNIT_NAME:小区名称|ROAD:行政区域|old_address:小区地址|ANSUM:客户数（户）|OKSUM:成功入户数（户）|RZL:入户率|V_COUNT_LQ:漏气（chu）发现|luq_fix:修复|V_COUNT_RQB:燃气表故障（块）发现|rqb_fix:更换|V_COUNT_RG:胶管隐患（户）发现|jiaog_fix:更换|V_COUNT_GK:管卡隐患发现|kag_fix:更换|zibifa:发现故障自闭阀（个）|zibifa_fix:更换自闭阀（个）|hnwz:户内违章（户）|V_COUNT_QT:高风险|V_COUNT_TZD:发放隐患通知书（张)|xczl:发放宣传资料（份）|tsqk:特殊情况说明备注$}"></HyperlinkButton>
+            </StackPanel>
+        </Grid>
+        <!--显示列表-->
+        <Grid x:Name="data_row" Grid.Row="2" Height="auto" >
+            <sdk:DataGrid x:Name="check_roplo"  Margin="0"  AutoGenerateColumns="False" Width="Auto" IsReadOnly="True"  ColumnHeaderStyle="{StaticResource aHeaderStyle}" >
+                <sdk:DataGrid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFA0B5D0" Offset="0"/>
+                        <GradientStop Color="#FF798DB2" Offset="1"/>
+                    </LinearGradientBrush>
+                </sdk:DataGrid.Background>
+                <a:Data.Items>
+                    <o:PagedList x:Name="pl" WebClientInfo="{StaticResource dbclient}"  EntityType="t_singlevalue"
+                                PageIndex="0" PageSize="10000000" SumNames=","/>
+                </a:Data.Items>
+                <sdk:DataGrid.Columns >
+                    <sdk:DataGridTextColumn Header="安检时间" Binding="{Binding ARRIVAL_TIME}" Width="80" />
+                    <sdk:DataGridTextColumn Header="小区名称" Binding="{Binding UNIT_NAME}" Width="70" />
+                    <sdk:DataGridTextColumn Header="行政区域" Binding="{Binding ROAD}" Width="70" />
+                    <sdk:DataGridTextColumn Header="小区地址" Binding="{Binding old_address}" Width="70" />
+                    <sdk:DataGridTextColumn Header="客户数（户）"  Binding="{Binding ANSUM}" Width="60"/>
+                    <sdk:DataGridTextColumn Header="成功入户数（户）" Binding="{Binding OKSUM}"  Width="90"/>
+                    <sdk:DataGridTextColumn Header="入户率" Binding="{Binding RZL}"  Width="60"/>
+                    <sdk:DataGridTextColumn Header="漏气（chu）发现" Binding="{Binding V_COUNT_LQ}" Width="95"/>
+                    <sdk:DataGridTextColumn Header="修复" Binding="{Binding luq_fix}" Width="45" />
+                    <sdk:DataGridTextColumn Header="燃气表故障（块）发现" Binding="{Binding V_COUNT_RQB}" Width="120"/>
+                    <sdk:DataGridTextColumn Header="更换" Binding="{Binding rqb_fix}" Width="45"/>
+                    <sdk:DataGridTextColumn Header="胶管隐患（户）发现" Binding="{Binding V_COUNT_RG}" Width="110" />
+                    <sdk:DataGridTextColumn Header="更换" Binding="{Binding jiaog_fix}" Width="45" />
+                    <sdk:DataGridTextColumn Header="管卡隐患发现" Binding="{Binding V_COUNT_GK}" Width="80"/>
+                    <sdk:DataGridTextColumn Header="更换" Binding="{Binding kag_fix}" Width="45" />
+                    <sdk:DataGridTextColumn Header="发现故障自闭阀（个）" Binding="{Binding zibifa}" Width="110" />
+                    <sdk:DataGridTextColumn Header="更换自闭阀（个）" Binding="{Binding zibifa_fix}" Width="100"/>
+                    <sdk:DataGridTextColumn Header="户内违章（户）" Binding="{Binding hnwz}" Width="90"/>
+                    <sdk:DataGridTextColumn Header="高风险" Binding="{Binding V_COUNT_QT}" Width="60" />
+                    <sdk:DataGridTextColumn Header="发放隐患通知书（张)" Binding="{Binding V_COUNT_TZD}" Width="110" />
+                    <sdk:DataGridTextColumn Header="发放宣传资料（份）" Binding="{Binding xczl}" Width="100" />
+                    <sdk:DataGridTextColumn Header="特殊情况说明备注" Binding="{Binding tsqk}" Width="100" />
+                </sdk:DataGrid.Columns>
+            </sdk:DataGrid>
+        </Grid>
+
+        <Grid x:Name="button_db" Grid.Row="3"  >
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0"  >项目:</TextBlock>
+            <TextBlock  Grid.Row="0" Grid.Column="1" >客户数（户）</TextBlock>
+            <TextBlock  Grid.Row="0" Grid.Column="2"  >成功入户数（户）</TextBlock>
+            <TextBlock  Grid.Row="0" Grid.Column="3"  >入户率</TextBlock>
+            <TextBlock  Grid.Row="0" Grid.Column="4"  >漏气（chu）发现</TextBlock>
+            <TextBlock  Grid.Row="0" Grid.Column="5" >修复</TextBlock>
+            <TextBlock  Grid.Row="0" Grid.Column="6"  >燃气表故障（块）发现</TextBlock>
+            <TextBlock  Grid.Row="0" Grid.Column="7" >更换</TextBlock>
+            <TextBlock  Grid.Row="0" Grid.Column="8"  >胶管隐患（户）发现</TextBlock>
+            <TextBlock  Grid.Row="0" Grid.Column="9" >更换</TextBlock>
+
+
+            <TextBlock Grid.Row="2" Grid.Column="0"  >项目:</TextBlock>
+            <TextBlock  Grid.Row="2" Grid.Column="1" > 管卡隐患发现</TextBlock>
+            <TextBlock  Grid.Row="2" Grid.Column="2"  > 更换</TextBlock>
+            <TextBlock  Grid.Row="2" Grid.Column="3"  >发现故障自闭阀（个）</TextBlock>
+            <TextBlock  Grid.Row="2" Grid.Column="4"  >更换自闭阀（个）</TextBlock>
+            <TextBlock  Grid.Row="2" Grid.Column="5" >户内违章（户）</TextBlock>
+            <TextBlock  Grid.Row="2" Grid.Column="6"   >高风险</TextBlock>
+            <TextBlock  Grid.Row="2" Grid.Column="7" >发放隐患通知书（张)</TextBlock>
+            <TextBlock  Grid.Row="2" Grid.Column="8"  >发放宣传资料（份）</TextBlock>
+            <TextBlock  Grid.Row="2" Grid.Column="9"  >特殊情况说明备注</TextBlock>
+
+            <TextBlock Text="合计: " Grid.Row="1" Grid.Column="0" />
+            <TextBox Name="ansum_xj" Grid.Row="1" Grid.Column="1"  IsReadOnly="True" />
+            <TextBox Name="oksum_xj" Grid.Row="1" Grid.Column="2"  IsReadOnly="True" />
+            <TextBox Name="rzl_xj" Grid.Row="1" Grid.Column="3" IsReadOnly="True"/>
+            <TextBox Name="lq_xj"  Grid.Row="1" Grid.Column="4"   IsReadOnly="True"/>
+
+            <TextBox Name="lqfix_xj"  Grid.Row="1" Grid.Column="5" IsReadOnly="True"/>
+            <TextBox Name="rqb_xj"  Grid.Row="1" Grid.Column="6" IsReadOnly="True"  />
+            <TextBox Name="rqbfix_xj"  Grid.Row="1" Grid.Column="7" IsReadOnly="True" />
+            <TextBox Name="rg_xj"  Grid.Row="1" Grid.Column="8"  IsReadOnly="True"/>
+            <TextBox Name="rgfix_xj"  Grid.Row="1" Grid.Column="9"  IsReadOnly="True" />
+
+            <TextBlock Text="合计: " Grid.Row="3" Grid.Column="0" />
+            <TextBox Name="gk_xj"  Grid.Row="3" Grid.Column="1"  IsReadOnly="True"/>
+            <TextBox Name="gkfix_xj"   Grid.Row="3" Grid.Column="2"  IsReadOnly="True" />
+            <TextBox Name="zibifa_xj"  Grid.Row="3" Grid.Column="3"  IsReadOnly="True" />
+            <TextBox Name="zibifafix_xj"  Grid.Row="3" Grid.Column="4"  IsReadOnly="True" />
+            <TextBox Name="hnwz_xj"     Grid.Row="3" Grid.Column="5"  IsReadOnly="True" />
+            <TextBox Name="gfx_xj"   Grid.Row="3" Grid.Column="6" IsReadOnly="True" />
+            <TextBox Name="tzd_xj"   Grid.Row="3" Grid.Column="7"  IsReadOnly="True" />
+            <TextBox Name="xczl_xj"  Grid.Row="3" Grid.Column="8"  IsReadOnly="True" />
+            <TextBox Name="bz_xj"    Grid.Row="3" Grid.Column="9"  IsReadOnly="True" />
+
+
+        </Grid>
+        <c:Excel x:Name="toExcel" HQL="{m:Exp Str=$sql:\{pl.HQL\}\}}" 
+   			Completed="{m:Exp Str=downLoad.Down()}"
+	   		Path="{m:Exp Str=$\{server.BaseAddress\}/excel/\{check_roplo.ItemsSource.Count\}/ARRIVAL_TIME:安检时间|UNIT_NAME:小区名称|ROAD:行政区域|old_address:小区地址|ANSUM:客户数（户）|OKSUM:成功入户数（户）|RZL:入户率|V_COUNT_LQ:漏气（chu）发现|luq_fix:修复|V_COUNT_RQB:燃气表故障（块）发现|rqb_fix:更换|V_COUNT_RG:胶管隐患（户）发现|jiaog_fix:更换|V_COUNT_GK:管卡隐患发现|kag_fix:更换|zibifa:发现故障自闭阀（个）|zibifa_fix:更换自闭阀（个）|hnwz:户内违章（户）|V_COUNT_QT:高风险|V_COUNT_TZD:发放隐患通知书（张)|xczl:发放宣传资料（份）|tsqk:特殊情况说明备注$}"/>
+        <c:DownLoad x:Name="downLoad" Path="{m:Exp Str=$\{server.BaseAddress\}/file/\{toExcel.FileName\}}"></c:DownLoad>
+
+    </Grid>
+
+</UserControl>

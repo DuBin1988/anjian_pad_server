@@ -1,0 +1,6 @@
+cardType= 0 port= 2 dll= default
+cardType= 1 port= 3 dll= default
+cardType= 2 port= 4 dll= default 
+cardType= 3 port= 2 dll= wuxi.dll
+cardType= 4 port= 2 dll= wuxi.dll
+gouQiZhe= 100 port= 1 dll= default

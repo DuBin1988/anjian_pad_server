@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/repository/!svn/ver/34202/huanghesafecheckserver/src/main/java/com/aote/rs
+END
+BMPService.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/repository/!svn/ver/34202/huanghesafecheckserver/src/main/java/com/aote/rs/BMPService.java
+END
+FileService.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/java/com/aote/rs/FileService.java
+END
+ExcelService.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/java/com/aote/rs/ExcelService.java
+END
+IndoorInspectService.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/repository/!svn/ver/29461/huanghesafecheckserver/src/main/java/com/aote/rs/IndoorInspectService.java
+END
+SMSService.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/java/com/aote/rs/SMSService.java
+END
+Tunnel.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/java/com/aote/rs/Tunnel.java
+END
+DBService.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/java/com/aote/rs/DBService.java
+END
+CardService.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/java/com/aote/rs/CardService.java
+END
+GetCheckInfoService.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/repository/!svn/ver/33751/huanghesafecheckserver/src/main/java/com/aote/rs/GetCheckInfoService.java
+END
+CalculateService.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/java/com/aote/rs/CalculateService.java
+END

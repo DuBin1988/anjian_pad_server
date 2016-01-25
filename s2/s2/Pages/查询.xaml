@@ -1,0 +1,307 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:a="clr-namespace:Com.Aote.Attachs;assembly=s2DLL"
+    xmlns:o="clr-namespace:Com.Aote.ObjectTools;assembly=s2DLL"
+    xmlns:b="clr-namespace:Com.Aote.Behaviors;assembly=s2DLL"
+	xmlns:c="clr-namespace:Com.Aote.Controls;assembly=s2DLL"
+    xmlns:m="clr-namespace:Com.Aote.Marks;assembly=s2DLL"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+    xmlns:data="clr-namespace:System.Windows.Data;assembly=System.Windows"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+	xmlns:System="clr-namespace:System;assembly=mscorlib"
+	xmlns:oo="clr-namespace:Com.Aote.ObjectTools"
+    xmlns:v="clr-namespace:s2.Pages"
+    xmlns:beh="clr-namespace:Com.Aote.Behavior"
+	mc:Ignorable="d" FontSize="13"  
+	x:Class="Com.Aote.Pages.查询">
+    <UserControl.Resources>
+        <toolkit:ObjectCollection x:Key="REPAIR_STATE">
+            <v:Pair CName="" Code=""></v:Pair>
+            <v:Pair CName="已维修" Code="='已维修'"></v:Pair>
+            <v:Pair CName="未维修" Code="^>'已维修'"></v:Pair> 
+        </toolkit:ObjectCollection>
+
+        <toolkit:ObjectCollection x:Key="ROOM_STRUCTURE">
+            <v:Pair CName="平房" Code="平房"></v:Pair>
+            <v:Pair CName="多层" Code="多层"></v:Pair>
+            <v:Pair CName="小高层" Code="小高层"></v:Pair>
+            <v:Pair CName="高层" Code="高层"></v:Pair>
+            <v:Pair CName="别墅" Code="别墅"></v:Pair>
+        </toolkit:ObjectCollection>
+        <toolkit:ObjectCollection x:Key="WARM">
+            <v:Pair CName="热力公司集中供暖" Code="热力公司集中供暖"></v:Pair>
+            <v:Pair CName="小区集中供暖" Code="小区集中供暖"></v:Pair>
+            <v:Pair CName="客户自行供暖" Code="客户自行供暖"></v:Pair>
+            <v:Pair CName="其他供暖" Code="其他供暖"></v:Pair>
+        </toolkit:ObjectCollection>
+        <toolkit:ObjectCollection x:Key="RQB_AROUND">
+            <v:Pair CName="左表" Code="左表"></v:Pair>
+            <v:Pair CName="右表" Code="右表"></v:Pair>
+        </toolkit:ObjectCollection>
+        <toolkit:ObjectCollection x:Key="METER_TYPE">
+            <v:Pair CName="G2.5" Code="G2.5"></v:Pair>
+            <v:Pair CName="G4" Code="G4"></v:Pair>
+        </toolkit:ObjectCollection>
+        <toolkit:ObjectCollection x:Key="JB_METER_NAME">
+            <v:Pair CName="丹东" Code="丹东"></v:Pair>
+            <v:Pair CName="重检" Code="重检"></v:Pair>
+            <v:Pair CName="赛福" Code="赛福"></v:Pair>
+            <v:Pair CName="重前" Code="重前"></v:Pair>
+            <v:Pair CName="山城" Code="山城"></v:Pair>
+            <v:Pair CName="天津自动化" Code="天津自动化"></v:Pair>
+            <v:Pair CName="其他" Code="其他"></v:Pair>
+        </toolkit:ObjectCollection>
+        <toolkit:ObjectCollection x:Key="IC_METER_NAME">
+            <v:Pair CName="华捷" Code="华捷"></v:Pair>
+            <v:Pair CName="赛福" Code="赛福"></v:Pair>
+            <v:Pair CName="秦川" Code="秦川"></v:Pair>
+            <v:Pair CName="秦港" Code="秦港"></v:Pair>
+            <v:Pair CName="致力" Code="致力"></v:Pair>
+            <v:Pair CName="其他" Code="其他"></v:Pair>
+        </toolkit:ObjectCollection>
+        <toolkit:ObjectCollection x:Key="RIGIDITY">
+            <v:Pair CName="合格" Code="合格"></v:Pair>
+            <v:Pair CName="不合格" Code="不合格"></v:Pair>
+        </toolkit:ObjectCollection>
+        <toolkit:ObjectCollection x:Key="USER_SATISFIED">
+            <v:Pair CName="满意" Code="满意"></v:Pair>
+            <v:Pair CName="基本满意" Code="基本满意"></v:Pair>
+            <v:Pair CName="不满意" Code="不满意"></v:Pair>
+        </toolkit:ObjectCollection>
+        <toolkit:ObjectCollection x:Key="COOK_BRAND">
+            <v:Pair CName="港华紫荆" Code="港华紫荆"></v:Pair>
+            <v:Pair CName="万和" Code="万和"></v:Pair>
+            <v:Pair CName="万家乐" Code="万家乐"></v:Pair>
+            <v:Pair CName="林内" Code="林内"></v:Pair>
+            <v:Pair CName="海尔" Code="海尔"></v:Pair>
+            <v:Pair CName="阿里斯顿" Code="阿里斯顿"></v:Pair>
+            <v:Pair CName="樱花" Code="樱花"></v:Pair>
+            <v:Pair CName="华帝" Code="华帝"></v:Pair>
+            <v:Pair CName="其他" Code="其他"></v:Pair>
+        </toolkit:ObjectCollection>
+        <toolkit:ObjectCollection x:Key="WATER_BRAND">
+            <v:Pair CName="港华紫荆" Code="港华紫荆"></v:Pair>
+            <v:Pair CName="万和" Code="万和"></v:Pair>
+            <v:Pair CName="万家乐" Code="万家乐"></v:Pair>
+            <v:Pair CName="林内" Code="林内"></v:Pair>
+            <v:Pair CName="海尔" Code="海尔"></v:Pair>
+            <v:Pair CName="阿里斯顿" Code="阿里斯顿"></v:Pair>
+            <v:Pair CName="樱花" Code="樱花"></v:Pair>
+            <v:Pair CName="华帝" Code="华帝"></v:Pair>
+            <v:Pair CName="其他" Code="其他"></v:Pair>
+        </toolkit:ObjectCollection>
+        <toolkit:ObjectCollection x:Key="WHE_BRAND">
+            <v:Pair CName="港华紫荆" Code="港华紫荆"></v:Pair>
+            <v:Pair CName="万和" Code="万和"></v:Pair>
+            <v:Pair CName="万家乐" Code="万家乐"></v:Pair>
+            <v:Pair CName="林内" Code="林内"></v:Pair>
+            <v:Pair CName="海尔" Code="海尔"></v:Pair>
+            <v:Pair CName="阿里斯顿" Code="阿里斯顿"></v:Pair>
+            <v:Pair CName="樱花" Code="樱花"></v:Pair>
+            <v:Pair CName="华帝" Code="华帝"></v:Pair>
+            <v:Pair CName="其他" Code="其他"></v:Pair>
+        </toolkit:ObjectCollection>
+        <toolkit:ObjectCollection x:Key="COOK_TYPE">
+            <v:Pair CName="台式单眼" Code="台式单眼"></v:Pair>
+            <v:Pair CName="台式双眼" Code="台式双眼"></v:Pair>
+            <v:Pair CName="镶嵌双眼" Code="镶嵌双眼"></v:Pair>
+        </toolkit:ObjectCollection>
+        <toolkit:ObjectCollection x:Key="WATER_FLUE">
+            <v:Pair CName="平衡" Code="平衡"></v:Pair>
+            <v:Pair CName="强排" Code="强排"></v:Pair>
+            <v:Pair CName="烟道" Code="烟道"></v:Pair>
+            <v:Pair CName="直排" Code="直排"></v:Pair>
+        </toolkit:ObjectCollection>
+        <toolkit:ObjectCollection x:Key="precaution">
+            <v:Pair CName="" Code=""></v:Pair>
+            <v:Pair CName="使用直排式热水器" Code="使用直排式热水器"></v:Pair>
+            <v:Pair CName="热水器或壁挂炉安装在卧室" Code="热水器或壁挂炉安装在卧室"></v:Pair>
+            <v:Pair CName="燃气设施安装在卧室" Code="燃气设施安装在卧室"></v:Pair>
+            <v:Pair CName="热水器未安装烟道或烟道未接到室外" Code="热水器未安装烟道或烟道未接到室外"></v:Pair>
+        </toolkit:ObjectCollection>
+    </UserControl.Resources>
+        <Grid x:Name="LayoutRoot">
+        <m:ResourceLoad x:Name="pageResource">
+            <!--不用-->
+            <!--<o:ChildWindowObj Name="planDialog" CWName="/Pages/获取计划" />
+
+            <o:PagedList Name="repairManList" WebClientInfo="{StaticResource dbclient}" Path="sql"
+                         HQL="{m:Exp Str=$select ID\, NAME from t_user  where instr(roles\,(select id from t_role where NAME\=\'维修人员\')\,1)\=1$}"
+                         Names="REPAIRMAN_ID,REPAIRMAN,rn" PageIndex="0" PageSize="9999" SumNames=","/>-->
+
+            <!--安检列表-->
+            <o:PagedObjectList Name="areafileslist" WebClientInfo="{StaticResource dbclient}"
+				Path="{m:Exp Str=$select distinct t from T_INSPECTION t left join fetch t.LINES l where \{areafilesearch.DataContext.Condition\}$}"
+				MultiPath="{m:Exp Str=$from T_INSPECTION t where \{areafilesearch.DataContext.Condition\}$}"
+				SumNames=","
+				PageSize="{m:Exp Str=pager.PageSize}" PageIndex="{m:Exp Str=pager.PageIndex}"/>
+            <!--安检状态-->
+            <o:ObjectList Name="conditionlist" EntityType="paramvalue" WebClientInfo="{StaticResource dbclient}" Path="from paramvalue where param.name='安检状态'" HasEmptyRow="True" />
+            
+        </m:ResourceLoad>
+
+        <Grid >
+            <c:BusyIndicatorEx BusyContent="正在查询，请稍等" IsBusy="{m:Exp Str=areafiles.ItemsSource.IsBusy}" >
+				<Border BorderThickness="1" BorderBrush="#FF9AA2AB" Margin="0" Padding="2" Width="Auto" Height="Auto" VerticalAlignment="Stretch" >
+					<toolkit:DockPanel Width="Auto"   >
+						<toolkit:DockPanel   Background="#94a8cd" toolkit:DockPanel.Dock="Bottom" Margin="0,0,0,0" Height="25" >
+							<TextBlock TextWrapping="Wrap" Text="{m:Exp Str=$共\{areafiles.ItemsSource.Count\}项}" Width="Auto" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Margin="0,0,0,0" Foreground="#FF140000" FontSize="14"/>
+							<sdk:DataPager x:Name="pager" Source="{Binding ItemsSource.Count, Converter={StaticResource DataPagerConverter}, ElementName=areafiles}"  Margin="0,0,0,0" PageSize="15"/>
+						</toolkit:DockPanel>
+						<toolkit:DockPanel  x:Name="areafilesearch" toolkit:DockPanel.Dock="Top"  Margin="0,0,0,5"   >
+                            <a:Data.Context>
+                                <o:SearchObject />        	
+							</a:Data.Context>
+							<Grid Background="#FF94A8CD">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="70"/>
+									<ColumnDefinition Width="12.5*"/>
+									<ColumnDefinition Width="70"/>
+                                    <ColumnDefinition Width="12.5*"/>
+                                    <ColumnDefinition Width="70"/>
+                                    <ColumnDefinition Width="12.5*"/>
+                                    <ColumnDefinition Width="70"/>
+                                    <ColumnDefinition Width="12.5*"/>
+                                    <ColumnDefinition Width="70"/>
+                                    <ColumnDefinition Width="12.5*"/>
+                                    <ColumnDefinition Width="70"/>
+                                    <ColumnDefinition Width="12.5*"/>
+                                </Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock TextWrapping="Wrap" Text="小区名称：" Margin="5,4,0,4" Grid.Row="0" Grid.Column="0" />
+                                <TextBox TextWrapping="Wrap" Grid.Row="0" Grid.Column="1" Text="{m:Bind Path=UNIT_NAME}"  Margin="0" Height="25" >
+                                    <a:Data.Prop>
+                                        <o:PropertySetter PropertyName="UNIT_NAME"  Operator="t.UNIT_NAME like '%this%'"/>
+                                    </a:Data.Prop>
+                                </TextBox>
+                                <TextBlock TextWrapping="Wrap" Text="楼号：" Grid.Row="0" Grid.Column="2" Margin="5,4,0,4" HorizontalAlignment="Right"/>
+                                <TextBox TextWrapping="Wrap" Grid.Row="0" Grid.Column="3"  Text="{m:Bind Path=CUS_DOM}"  Margin="0" Height="25" >
+                                    <a:Data.Prop>
+                                        <o:PropertySetter PropertyName="CUS_DOM"  Operator="t.CUS_DOM like '%this%'"/>
+                                    </a:Data.Prop>
+                                </TextBox> 
+                                <TextBlock TextWrapping="Wrap" Text="单元：" Grid.Row="0" Grid.Column="4" Margin="5,4,0,4"  HorizontalAlignment="Right"/>
+                                <TextBox TextWrapping="Wrap"  Grid.Row="0" Grid.Column="5" Text="{m:Bind Path=CUS_DY}"  Margin="0" Height="25" >
+                                    <a:Data.Prop>
+                                        <o:PropertySetter PropertyName="CUS_DY"  Operator="t.CUS_DY like '%this%'"/>
+                                    </a:Data.Prop>
+                                </TextBox>
+                                <TextBlock TextWrapping="Wrap" Grid.Row="0" Grid.Column="6" Text="楼层：" Margin="5,4,0,4"  HorizontalAlignment="Right"/>
+                                <TextBox TextWrapping="Wrap" Grid.Row="0" Grid.Column="7" Text="{m:Bind Path=CUS_FLOOR}"  Margin="0" Height="25" >
+                                    <a:Data.Prop>
+                                        <o:PropertySetter PropertyName="CUS_FLOOR"  Operator="t.CUS_FLOOR like '%this%'"/>
+                                    </a:Data.Prop>
+                                </TextBox>
+                                <TextBlock TextWrapping="Wrap" Grid.Row="0" Grid.Column="8" Text="房号：" Margin="5,4,0,4"  HorizontalAlignment="Right"/>
+                                <TextBox TextWrapping="Wrap" Grid.Row="0" Grid.Column="9" Text="{m:Bind Path=CUS_ROOM}" Margin="0" Height="25" >
+                                    <a:Data.Prop>
+                                        <o:PropertySetter PropertyName="CUS_ROOM"  Operator="t.CUS_ROOM like '%this%'"/>
+                                    </a:Data.Prop>
+                                </TextBox> 
+                                <TextBlock TextWrapping="Wrap" Grid.Row="1" Grid.Column="0" Text="从：" Margin="5,4,0,4" Height="25" FontSize="13.333" HorizontalAlignment="Right" />
+                                <sdk:DatePicker SelectedDate="{m:Bind Path=f_startedate}" Margin="0"  Height="25" Grid.Row="1" Grid.Column="1" VerticalAlignment="Stretch" >
+                                    <a:Data.Prop>
+                                        <o:PropertySetter PropertyName="f_startedate" Value="{m:Exp Str=SysTime.Today}"
+								Operator=" DEPARTURE_TIME >= substring('this',1,10)"/>
+                                    </a:Data.Prop>
+                                </sdk:DatePicker>
+                                <TextBlock TextWrapping="Wrap" Grid.Row="1" Grid.Column="2" Text="到：" Margin="5,4,0,4" Height="25" FontSize="13.333" HorizontalAlignment="Right" />
+                                <sdk:DatePicker SelectedDate="{m:Bind Path=f_enddate}" Margin="0"  Height="25" VerticalAlignment="Stretch" Grid.Row="1" Grid.Column="3" >
+                                    <a:Data.Prop>
+                                        <o:PropertySetter PropertyName="f_enddate" Value="{m:Exp Str=SysTime.Today}"
+								Operator=" substring(DEPARTURE_TIME,1,10) ^= substring('this',1,10)"/>
+                                    </a:Data.Prop>
+                                </sdk:DatePicker>
+                                <TextBlock TextWrapping="Wrap" Text="安检情况：" Margin="5,4,0,4" Grid.Row="1" Grid.Column="4"/>
+                                <ComboBox Name="condition"   SelectedValue="{m:Bind Path=CONDITION}" Grid.Row="1" Grid.Column="5" ItemsSource="{m:Exp Str=conditionlist}" SelectedValuePath="name"  Margin="0" DisplayMemberPath="name"   Height="25" >
+                                    <a:Data.Prop>
+                                        <o:PropertySetter PropertyName="CONDITION"  Operator="t.CONDITION like 'this%'"/>
+                                    </a:Data.Prop>
+                                </ComboBox>
+                                <TextBlock HorizontalAlignment="Right" Height="Auto" Grid.Row="1" Grid.Column="6" TextWrapping="Wrap" Text="维修状态:" VerticalAlignment="Top" Width="Auto"/>
+                                <ComboBox SelectedValue="{m:Bind Path=REPAIR_STATE}" Grid.Row="1" Grid.Column="7" ItemsSource="{Binding Source={StaticResource REPAIR_STATE}}"  DisplayMemberPath="CName" SelectedValuePath="Code"  Margin="0" Height="25">
+                                    <a:Data.Prop>
+                                        <o:PropertySetter PropertyName="REPAIR_STATE"  Operator="t.REPAIR_STATE this"/>
+                                    </a:Data.Prop>
+                                </ComboBox>
+                                <TextBlock TextWrapping="Wrap" Text="安检人：" Margin="5,4,0,4" Grid.Column="8" Grid.Row="1" HorizontalAlignment="right"/>
+                                <TextBox TextWrapping="Wrap" Grid.Column="9" Grid.Row="1" Text="{m:Bind Path=SAVE_PEOPLE}"  Margin="0" Height="25" >
+                                    <a:Data.Prop>
+                                        <o:PropertySetter PropertyName="SAVE_PEOPLE"  Operator="t.SAVE_PEOPLE like '%this%'"/>
+                                    </a:Data.Prop>
+                                </TextBox>
+                                <TextBlock TextWrapping="Wrap" Text="维修人员：" Margin="5,4,0,4" Grid.Column="10"  Grid.Row="0"/>
+                                <TextBox TextWrapping="Wrap" Grid.Column="11" Text="{m:Bind Path=REPAIRMAN}"  Margin="0,1" Height="25" Grid.Row="0">
+                                        <a:Data.Prop>
+                                            <o:PropertySetter PropertyName="REPAIRMAN"  Operator="t.REPAIRMAN like '%this%'"/>
+                                        </a:Data.Prop>
+                                    </TextBox>
+                                <Button Content="查询" x:Name="areasearchbutton" IsEnabled="{m:Exp Str=(areafilesearch.DataContext.UNIT_NAME!\=null) or (areafilesearch.DataContext.CUS_DOM!\=null)  or (areafilesearch.DataContext.CUS_DY!\=null)  or (areafilesearch.DataContext.CUS_FLOOR!\=null)  or (areafilesearch.DataContext.CUS_ROOM!\=null)  or (areafilesearch.DataContext.f_startedate!\=null)  or (areafilesearch.DataContext.f_enddate!\=null)  or (areafilesearch.DataContext.CONDITION!\=null)  or (areafilesearch.DataContext.REPAIR_STATE!\=null)  or (areafilesearch.DataContext.SAVE_PEOPLE!\=null)  or (areafilesearch.DataContext.REPAIRMAN!\=null) :$True$\,$False$}" Grid.Row="1" Grid.Column="11"  Click="{m:Exp Str=areafilesearch.DataContext.Search()}" Margin="0,0,5,2" HorizontalAlignment="Center" d:LayoutOverrides="Height" Width="70"  Style="{StaticResource 查询btn}" />                            
+                                <!--安检计划查询貌似整合不进来
+                                <TextBlock TextWrapping="Wrap" Text="特殊卡号：" Margin="0,5,0,1" FontSize="13.333"  Grid.Row="3" Grid.Column="4"  HorizontalAlignment="Right"/>
+                                <TextBox TextWrapping="Wrap" Text="{m:Bind Path=CARD_ID}" Width="150" Margin="0,2,0,-1" Height="25"  Grid.Row="3" Grid.Column="5">
+                                    <a:Data.Prop>
+                                        <o:PropertySetter PropertyName="CARD_ID"  Operator="CARD_ID like '%this%'"/>
+                                    </a:Data.Prop>
+                                </TextBox>
+
+                                <TextBlock TextWrapping="Wrap" Text="安检计划：" Margin="5,4,0,4" FontSize="13.333" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Right" />
+                                <TextBox TextWrapping="Wrap" IsReadOnly="True" Text="{m:Bind Path=CHECKPLAN_NAME}" Width="150" Margin="0" Height="25"  Grid.Row="4" Grid.Column="1">
+                                    <a:Data.Prop>
+                                        <o:PropertySetter PropertyName="CHECKPLAN_NAME" Operator="CHECKPLAN_NAME = 'this'" NotNull="True" Value="{m:Exp Str=planDialog.Result.f_name}"/>
+                                    </a:Data.Prop>
+
+                                </TextBox>
+                                <Button Content="选取计划" Click="{m:Exp Str=planDialog.IsOpen\=True}"  Height="30"  Grid.Row="4" Grid.Column="2" Margin="5,0" />
+                                <CheckBox Content="多次安检" Grid.Column="3" Grid.Row="4" VerticalAlignment="Center" Name="duplicateInspection"></CheckBox>
+                                -->
+                                </Grid>
+						</toolkit:DockPanel>
+                        <sdk:DataGrid x:Name="areafiles" Margin="0" ItemsSource="{m:Exp Str=areafileslist}" 
+							AutoGenerateColumns="False" Width="Auto" Background="{x:Null}" IsReadOnly="True">
+                            <i:Interaction.Behaviors>
+                                <beh:DataGridDoubleClickBehavior Page="/Pages/查询弹出" />
+                            </i:Interaction.Behaviors>
+                            <sdk:DataGrid.Columns>
+                                <sdk:DataGridTextColumn Header="序号"     Width="100"   Binding="{Binding Index}" d:IsLocked="True"/>
+                                <sdk:DataGridTextColumn Header="安检情况" Width="100"   Binding="{Binding CONDITION}"/>
+                                <sdk:DataGridTextColumn Header="小区名称" Width="100"   Binding="{Binding UNIT_NAME}"/>
+                                <sdk:DataGridTextColumn Header="楼号"     Width="90"  Binding="{Binding CUS_DOM}"/>
+                                <sdk:DataGridTextColumn Header="单元"     Width="90"   Binding="{Binding CUS_DY}"/>
+                                <sdk:DataGridTextColumn Header="楼层"     Width="90"   Binding="{Binding CUS_FLOOR}"/>
+                                <sdk:DataGridTextColumn Header="房号"     Width="90"   Binding="{Binding CUS_ROOM}"/>
+                                <sdk:DataGridTextColumn Header="安检员"   Width="100"   Binding="{Binding SAVE_PEOPLE}"/>
+                                <sdk:DataGridTextColumn Header="用户名称" Width="100"   Binding="{Binding USER_NAME}"/>
+                                <sdk:DataGridTextColumn Header="IC卡号"   Width="100"   Binding="{Binding CARD_ID}"/>
+                                <sdk:DataGridTextColumn Header="电话"     Width="100"   Binding="{Binding TELPHONE}"/>
+                                <sdk:DataGridTextColumn Header="维修人"   Width="100"   Binding="{Binding REPAIRMAN}"/>
+                                <sdk:DataGridTextColumn Header="维修结果" Width="*"   Binding="{Binding REPAIR_STATE}"/>
+
+                                
+                                <sdk:DataGridTextColumn Header="满意度" Width="*"   Binding="{Binding USER_SATISFIED}" Visibility="Collapsed"/>
+                                <sdk:DataGridTextColumn Header="签名人电话" Width="*"   Binding="{Binding SIGNTELEPHONE}" Visibility="Collapsed"/>
+                                <sdk:DataGridTextColumn Header="签名图片" Width="*"   Binding="{Binding USER_SIGN}" Visibility="Collapsed"/>
+
+                                <!--整合安检计划查询-->
+                                <!--<sdk:DataGridTextColumn Header="状态" Binding="{Binding state}"/>
+                                <sdk:DataGridTextColumn Header="安检次数" Binding="{Binding mark}"/>
+                                <sdk:DataGridTextColumn Header="删除状态" Binding="{Binding deleted}"/>
+                                <sdk:DataGridTextColumn Header="已发到访不遇卡" Binding="{Binding hasnotified}"/>
+                                <sdk:DataGridTextColumn Header="街道" Binding="{Binding road}"/>
+                                <sdk:DataGridTextColumn Header="旧档案地址" Binding="{Binding old_address}"/>-->
+                            </sdk:DataGrid.Columns>
+                        </sdk:DataGrid>
+                    </toolkit:DockPanel>
+				</Border>
+			</c:BusyIndicatorEx>
+        </Grid>
+	</Grid>
+</UserControl>

@@ -1,0 +1,6 @@
+[History]
+1=#P0#=mb	#P1#=Command3_Click	#P2#=工程1/Form1/Command3_Click	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20091026111833	#P7#=0	#P8#=15	.
+2=#P0#=mb	#P1#=Command4_Click	#P2#=工程1/Form1/Command4_Click	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20091022104121	#P7#=0	#P8#=12	.
+3=#P0#=mb	#P1#=Command5_Click	#P2#=工程1/Form1/Command5_Click	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20091022103043	#P7#=0	#P8#=4	.
+4=#P0#=mb	#P1#=funmsgBox	#P2#=工程1/Form1/funmsgBox	#P3#=	#P4#=	#P5#=MembMethodPrivate	#P6#=20091022095307	#P7#=0	#P8#=-6	.
+5=#P0#=mb	#P1#=Form_Load	#P2#=工程1/Form1/Form_Load	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20091022095210	#P7#=0	#P8#=1	.

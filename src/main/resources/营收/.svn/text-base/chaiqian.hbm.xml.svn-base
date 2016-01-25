@@ -1,0 +1,45 @@
+<?xml version="1.0"  encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <!--拆迁信息-->
+	<class  entity-name="t_chaiqian" table="t_chaiqian" dynamic-update="true">
+		 <id name="ID" type="string">
+			<generator class="uuid.hex"></generator>
+		</id>
+		<!--用户编号-->
+		<property name="f_userid" type="string"/>
+		<!--开始用户编号-->
+		<property name="f_startuserid" type="string"/>
+		<!--结束用户编号-->
+		<property name="f_enduserid" type="string"/>
+		<!--站点-->
+		<property name="f_usernum" type="int"/>
+		<!--楼号-->
+		<property name="floornum" type="int"/>
+		<!--原因-->
+		<property name="f_reason" type="string"/>
+			<!--拆迁日期-->
+		<property name="f_cqdate" type="date"/>
+		
+	
+		
+	
+		<!--部门-->
+		<property name="f_departments" type="string"/>
+		<!--操作人-->
+		<property name="f_coperator" type="string"/>
+		<!--分公司-->
+		<property name="f_filiale" type="string"/>
+		<!--操作日期-->
+		<property name="f_cdate" type="date"/>
+		<!--操作日期-->
+		<property name="f_time" type="time"/>
+	
+	 	 <!-- 查询用 -->
+		<property name="yi" type="int"/>
+ 
+     
+	</class>
+</hibernate-mapping>

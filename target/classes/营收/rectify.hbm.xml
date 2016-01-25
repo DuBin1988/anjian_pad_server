@@ -1,0 +1,51 @@
+﻿<?xml version="1.0"  encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <!--校表信息-->
+    <class   entity-name="t_rectify" table="t_rectify" >
+		 <id name="ID" type="string">
+			<generator class="uuid.hex"></generator>
+		</id>
+		<!--用户编号-->
+		<property name="f_userid" type="string"/>
+		<!--用户姓名-->
+		<property name="f_username" type="string"/>
+		<!--区域代码-->
+		<property name="f_regionid" type="string"/>
+		<!--单位名称-->
+		<property name="f_unitname" type="string"/>
+		<!--楼号-->
+		<property name="f_floor" type="int"/>
+		<!--用气地址-->
+		<property name="f_address" type="string"/>
+		<!--电话号码-->
+		<property name="f_phone" type="string"/>
+		<!--处理意见-->
+		<property name="f_opinion" type="string"/>
+		<!--气表厂家-->
+		<property name="f_factory" type="string"/>
+		<!--气表型号-->
+		<property name="f_model" type="string"/>
+		<!--表号-->
+		<property name="f_number" type="string"/>
+		<!--表读数-->
+		<property name="f_read" type="double"/>
+		<!--申请校表日期-->
+		<property name="f_application" type="date"/>
+		<!-- 校表日期 -->
+		<property name="f_rectifydate" type="date"/>
+		<!-- 校表人 -->
+		<property name="f_rectifyperson" type="string"/>
+		<!-- 校表结果 -->
+		<property name="f_result" type="string"/>
+		<!-- 校表原因 -->
+		<property name="f_reason" type="string"/>
+		<!-- 备注 -->
+		<property name="f_reMarks" type="string"/>
+		
+		<!-- 查询用 -->
+		<property name="yi" type="int"/>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,136 @@
+﻿<?xml version="1.0"  encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping >
+	<!--售气记录-->
+	<class entity-name="T_IC_SELLGAS" table="T_IC_SELLGAS" >
+	   <id name="ID" type="string">
+			<generator class="uuid.hex"></generator>
+		</id>
+		<!-- 计量方式 -->
+		<property name="measure_way" type="string"/>
+		<!--是否交维管费ISPAY_WGF-->
+		<property name="ISPAY_WGF" type="string"/>
+		<!--卡上金额-->
+		<property name="cardmoney" type="int"/>
+		<!--卡上气量-->
+		<property name="cardgas" type="int"/>
+		<!--网点、部门-->
+		<property name="OP_DEPART" type="string"/>
+		<!--用户卡号-->
+		<property name="CARD_ID" type="string"/>
+		<!--售气日期-->
+		<property name="OPERATE_DATE" type="date"/>
+		<!--售气时间-->
+		<property name="OPERATE_TIME" type="time"/>
+		<!--流水号-->
+		<property name="LSID" type="string"/>
+		<!--售气量-->
+		<property name="SELLGAS_GAS" type="double"/>
+		<!--临时计算购气量-->
+		<property name="gqGAS" type="int"/>
+		<!--单价-->
+		<property name="PRICE" type="double"/>
+		<!--金额-->
+		<property name="MONEY" type="double"/>
+		<!--操作员编号-->
+		<property name="OP_ID" type="string"/>   
+		<!--操作地点（机器号） -->
+		<property name="OP_SPOT" type="string"/>
+		<!--操作员-->
+		<property name="OP_CODE" type="string"/>
+		<!--操作日期-->
+		<property name="OP_DATE" type="date"/>
+	<!--操作时间-->
+		<property name="OP_TIME" type="time"/>
+		<!--售气来源单位 -->
+		<property name="COME" type="string"/>
+		<!--售气来源部门 -->
+		<property name="COME_DEP" type="string"/>
+		<!--归口单位 -->
+		<property name="SUBUNIT" type="string"/>
+		<!--用户性质 -->
+		<property name="USER_NATURE" type="string"/>
+		<!--用户类型 -->
+		<property name="USER_TYPE" type="string"/>
+		<!--用气设备 -->
+		<property name="USER_EQUIPMENT" type="string"/>
+		
+		<!--数据是否有效-->
+		<property name="DATA_VAILD" type="string"/>
+		<!--撤销部门 -->
+		<property name="CANCLE_OP_DEPART" type="string"/>
+		<!--撤销地点-->
+		<property name="CANCLE_OP_SPOT" type="string"/>
+		<!--撤销员 
+		<property name="CANCLE_OP_CODE" type="string"/>-->
+		<!--撤销操作员 -->
+		<property name="CANCLE_OP_ID" type="string"/>
+		<!--撤销日期 -->
+		<property name="CANCLE_OP_DATE" type="date"/>	
+		<!--撤销时间 -->
+		<property name="REVERSALTIME" type="time"/>	
+		<!--是否结账  -->
+		<property name="IS_BILL" type="string"/>
+		
+		<!--上次缴至日期  -->
+		<property name="WGFLASTDATE" type="date"/>
+		<!--本次缴至日期  -->
+		<property name="WGFLASTDATE2" type="date"/>
+		<!--维管费金额  -->
+		<property name="WGFMONEY" type="double"/>
+		<!-- 表型厂家编号 -->
+		<property name="METER_TYPES_ID" type="string"/>
+		<property name="METER_TYPES_NAME" type="string"/>
+		<!-- 上次累计购气量 -->
+		<property name="HJ" type="double"/>
+		<!-- 已购气量 -->
+		<property name="SUM_GAS" type="double"/>
+		<!-- 可购气量 -->
+		<property name="ALLOWSELLGAS" type="double"/>
+		
+		<!--维管费年数  -->
+		<property name="WGFLENGTH" type="int"/>
+		<!--维管费单价  -->
+		<property name="WGFPRICE" type="double"/>
+		<!--合计金额  -->
+		<property name="SUMGFGASMONEY" type="double"/>
+		<!--冬季开始日期-->
+		<property name="dongjistate" type="int"/>
+		<!--夏季开始日期-->
+		<property name="xiajistate" type="int"/>
+		<!--比较日期-->
+		<property name="bijiao" type="int"/>
+		<!--比较日期-->
+		<property name="bijiaostring" type="string"/>
+		<!--维修费起始月份,进行比较计算中间使用-->
+		<property name="f_beginfeebj" type="date"/>
+		<!--计算出的维护费交费月数小计-->
+		<property name="f_weihuheji" type="int"/>
+		<!--计算出的维护费交费月数-->
+		<property name="f_weihuyue" type="int"/>
+		<!--计算出的维护费交费年数-->
+		<property name="f_weihunians" type="double"/>
+		<!--交维护费后，日期计算后用于回写-->
+		<property name="f_beginfeehx" type="date"/>
+		<!--冲账方式-->
+		<property name="CHONGZHANGTYPE" type="string"/>
+		<!--对账标记-->
+		<property name="f_isduizhang" type="string"/>
+		<!--成功标示-->
+		<property name="f_success" type="string"/>
+		
+		<!--原流水id，利安冲账记录中保存原流水id-->
+		<property name="oldlsid" type="string"/>
+		<!--原记录日期-->
+		<property name="lasoperdate" type="date"/>
+		
+		<!--冲账记录id号-->
+		<property name="chonglsid" type="string"/>
+		<!--冲账日期-->
+		<property name="chongdate" type="date"/>
+		
+		 
+	</class>
+</hibernate-mapping>

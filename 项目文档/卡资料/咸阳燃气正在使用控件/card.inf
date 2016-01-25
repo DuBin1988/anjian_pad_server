@@ -1,0 +1,87 @@
+; ========================= card.inf ========================
+
+   ; This .inf file will control the installation of the MFC card
+   ; control. This control has been compiled with Visual C++ version 6.0.
+   ; The FileVersion tags in the dependent DLLs section on this file
+   ; reflect this requirement.
+
+   [version]
+   ; version signature (same for both NT and Win95) do not remove
+   signature="$CHICAGO$"
+   AdvancedINF=2.0
+
+   [Add.Code]
+   card.ocx=card.ocx
+   ; These are the necessary supporting DLLs for MFC 4.2 ActiveX Controls
+   ; thiscab is a keyword which, in this case, means that Spindial.ocx
+   ; can be found in the same .cab file as this .inf file
+   ; file-win32-x86 is an x86 platform specific identifier
+   ; See the ActiveX SDK - ActiveX Controls - Internet Component Download -
+   ; Packaging component code for automatic download
+   borlndmm.dll=borlndmm.dll
+   Mwic_32.dll=Mwic_32.dll
+   WRwCard.dll=WRwCard.dll
+   xf_RWCard.dll=xf_RWCard.dll
+   WRwCardok.dll=WRwCardok.dll
+   WRwCardok1.dll=WRwCardok1.dll
+   wuxi.dll=wuxi.dll
+   
+   [card.ocx]
+   file-win32-x86=thiscab
+   ; *** add your controls CLSID here ***
+   clsid={00F55F25-6BCC-44F5-AD4B-7F98CC22DEFE}
+   ; Add your ocx's file version here.
+   FileVersion=1,0,0,1
+   RegisterServer=yes
+
+   ; dependent DLLs
+   [borlndmm.dll]
+   ; This is an example of conditional hook. The hook only gets processed
+   ; if msvcrt.dll of the specified version is absent on client machine.
+   file-win32-x86=thiscab
+   FileVersion=6.0.6.163
+   RegisterServer=no
+
+   [Mwic_32.dll]
+   ; This is an example of conditional hook. The hook only gets processed
+   ; if msvcrt.dll of the specified version is absent on client machine.
+   file-win32-x86=thiscab
+   FileVersion=1,0,0,2
+   RegisterServer=no
+
+   [WRwCard.dll]
+   ; This is an example of conditional hook. The hook only gets processed
+   ; if msvcrt.dll of the specified version is absent on client machine.
+   file-win32-x86=thiscab
+   FileVersion=1,0,0,1
+   RegisterServer=no
+
+   [xf_RWCard.dll]
+   ; This is an example of conditional hook. The hook only gets processed
+   ; if msvcrt.dll of the specified version is absent on client machine.
+   file-win32-x86=thiscab
+   FileVersion=1,0,0,1
+   RegisterServer=no
+
+   [WRwCardok.dll]
+   ; This is an example of conditional hook. The hook only gets processed
+   ; if msvcrt.dll of the specified version is absent on client machine.
+   file-win32-x86=thiscab
+   FileVersion=1,0,0,1
+   RegisterServer=no
+
+   [WRwCardok1.dll]
+   ; This is an example of conditional hook. The hook only gets processed
+   ; if msvcrt.dll of the specified version is absent on client machine.
+   file-win32-x86=thiscab
+   FileVersion=1,0,0,1
+   RegisterServer=no
+
+   [wuxi.dll]
+   ; This is an example of conditional hook. The hook only gets processed
+   ; if msvcrt.dll of the specified version is absent on client machine.
+   file-win32-x86=thiscab
+   FileVersion=1,0,0,1
+   RegisterServer=no
+   ; ====================== end of spindial.inf =====================
+				

@@ -1,0 +1,50 @@
+变更原因：
+
+以前抄表单根据计划抄表月份产生，会导致对计划抄表月份管理的麻烦。
+
+变更内容：
+
+根据查询条件产生抄表单。已有抄表单的用户，不产生。
+
+问题：
+
+问题1：
+
+ 抄表单产生后，下发进行抄表，抄表录入进行了一部分时，错误点击产生抄表单。会导致
+已经录入的用户，重新产生抄表单，在批量录入时，会多出一部分已经录过的抄表单。
+
+应对办法：
+
+此问题在实际操作过程中，比较容易避免，一旦抄表单产生了，开始录入数据了，就不要
+再产生抄表单即可，目前先不解决。
+
+问题2：
+
+对于在某抄表周期内，只抄一部分用户的情况。采取在打印抄表单，或者进行抄表录入时，
+选择用户抄表月份的方式。以抄表月份来解决。
+
+修改内容：
+
+1、计划抄表月份，当做抄表月份使用，在建档、抄表单产生等过程可以取消掉。在抄表过程、
+包括批量抄表过程带上即可。
+
+2、修改查询内容为查询用户档案。
+
+3、产生抄表单的sql语句修改如下：
+
+insert into 
+t_handplan(f_userid, f_username, lastinputgasnum, f_gaswatchbrand, f_metertype,
+	f_address, f_districtname, f_usertype, f_gasprice, f_gaspricetype, f_dibaohu, f_apartment,
+	f_phone, scinputdate, f_yhxz, f_weizhi, f_menzhan,
+	f_zerenbumen, f_state, shifoujiaofei, users)
+select f_userid, f_username, lastinputgasnum, f_gaswatchbrand, f_metertype,
+	f_address, f_districtname, f_usertype, f_gasprice, f_gaspricetype, f_dibaohu, f_apartment,
+	f_phone, lastinputdate, f_yhxz, f_weizhi, f_menzhan,
+	f_zerenbumen, '未抄表', '否', id
+from t_userfiles 
+where f_state='正常' and {search.condition} and f_userid not in
+(select distinct f_userid from t_handplan where f_state='未抄表')
+
+4、导出Excel
+
+修改导出Excel的相关配置。

@@ -1,0 +1,85 @@
+﻿<?xml version="1.0"  encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <!--用户事物过户管理-->
+    <class   entity-name="t_transfer" table="t_transfer" >
+		 <id name="ID" type="string">
+			<generator class="uuid.hex"></generator>
+		</id>
+		<!--公司类型，分为天然气公司、银行 -->
+		<property name="f_comtype" type="string"/>
+		<!--用户编号-->
+		<property name="f_userid" type="string"/>
+		<!--用户姓名-->
+		<property name="f_username" type="string"/>
+		<!--用户地址-->	
+		<property name="f_address" type="string"/>
+		<!--电话-->
+		<property name="f_phone" type="string"/>
+		<!--身份证号-->
+		<property name="f_idnumber" type="string"/>
+		<!--新用户姓名-->
+		<property name="f_tnewusername" type="string"/>
+		<!--新用户电话-->
+		<property name="f_tnewphone" type="string"/>
+		<!--过户费-->
+		<property name="f_transferfee" type="double"/>
+		<!--备注-->
+		<property name="f_reason" type="string"/>
+		<!--过户日期-->
+		<property name="f_tdate" type="date"/>
+		<!--部门-->
+		<property name="f_departments" type="string"/>
+		<!--操作人-->
+		<property name="f_toperator" type="string"/>
+		<!--操作日期-->
+		<property name="f_opdate" type="date"/>
+		<!-- 分公司 -->
+		<property name="f_filiale" type="string"/>
+		<!-- 分公司编号-->
+		<property name="f_fengongsinum" type="string"/>
+		<!--维修费起始月份-->
+		<property name="f_beginfee" type="date"/>
+		<!--维修费截至月份-->
+		<property name="f_endfee" type="date"/>
+		<!--维修费金额-->
+		<property name="f_amountmaintenance" type="double"/>
+		<!-- 付手续费方 -->
+		<property name="f_solve" type="string"/>
+		<!--区域码 -->
+		<property name="f_communityid" type="string"/>
+		<!--楼号-->
+		<property name="f_cusDom" type="string"/>
+		<!--新证件类型-->
+		<property name="f_newcredentials" type="string"/>
+		<!--新证件证号-->
+		<property name="f_tnewidnumber" type="string"/>
+		<!--表底数-->
+		<property name="f_gasmeteraccomodations" type="double"/>
+	    <!--表累计购气量-->
+		<property name="f_metergasnums" type="double"/>
+	     <!--欠费-->
+		<property name="f_qianfee" type="double"/>
+		  <!--表读数-->
+		<property name="lastinputgasnum" type="double"/>
+		  <!--表读数-->
+		<property name="f_yuqi" type="double"/>
+	
+		
+	
+		
+	
+	
+		
+		
+		
+		
+		<!--查询使用-->
+		<property name="yi" type="int"/>
+	
+		
+		
+	</class>
+</hibernate-mapping>

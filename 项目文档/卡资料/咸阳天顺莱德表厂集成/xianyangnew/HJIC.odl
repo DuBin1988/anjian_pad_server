@@ -1,0 +1,82 @@
+// HJIC.odl : type library source for ActiveX Control project.
+
+// This file will be processed by the Make Type Library (mktyplib) tool to
+// produce the type library (HJIC.tlb) that will become a resource in
+// HJIC.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(B0F74536-C7D6-40AA-B48E-65C8A940A922), version(1.0),
+  helpfile("HJIC.hlp"),
+  helpstring("HJIC ActiveX Control module"),
+  control ]
+library HJICLib
+{
+	importlib(STDOLE_TLB);
+	importlib(STDTYPE_TLB);
+
+	//  Primary dispatch interface for CHJICCtrl
+
+	[ uuid(A629521D-24AF-405F-8BFB-5AF4C92D2555),
+	  helpstring("Dispatch interface for HJIC Control"), hidden ]
+	dispinterface _DHJIC
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CHJICCtrl)
+			//}}AFX_ODL_PROP
+
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CHJICCtrl)
+			[id(1)] void LoadConfigFile();
+			[id(2)] void LoadLibraries();
+			[id(3)] void LoadFunctionPointers();
+			[id(4)] long AoteReadCard();
+			[id(5)] long AoteSellGas(BSTR factory, BSTR cardno, double gas, double money, double curprice, long times, double newprice, BSTR datetime, double coemption);
+			[id(6)] long AoteRollBackGas(BSTR factory, BSTR cardno, double gas, double money, double curprice, long time, double newprice, BSTR datetime, double coemption);
+			[id(7)] long AoteReNewCard(BSTR factory, BSTR cardno, double gas, double money, double curprice, long times, double newprice, BSTR datetime, double coemption);
+			[id(8)] long AoteFormatCard(BSTR factory);
+			[id(9)] BSTR GetCardId();
+			[id(10)] BSTR GetFactory();
+			[id(11)] long GetGas();
+			[id(12)] long GetTimes();
+			[id(13)] long Init(BSTR factory, BSTR cardno, long gas, long times, long price);
+			//}}AFX_ODL_METHOD
+
+			[id(DISPID_ABOUTBOX)] void AboutBox();
+	};
+
+	//  Event dispatch interface for CHJICCtrl
+
+	[ uuid(379BDA5D-E530-48CC-897D-3334B89142B6),
+	  helpstring("Event interface for HJIC Control") ]
+	dispinterface _DHJICEvents
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+			// NOTE - ClassWizard will maintain event information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_EVENT(CHJICCtrl)
+			//}}AFX_ODL_EVENT
+	};
+
+	//  Class information for CHJICCtrl
+
+	[ uuid(1315AB82-6541-4BC2-80C1-DD2929509F20),
+	  helpstring("HJIC Control"), control ]
+	coclass HJIC
+	{
+		[default] dispinterface _DHJIC;
+		[default, source] dispinterface _DHJICEvents;
+	};
+
+
+	//{{AFX_APPEND_ODL}}
+	//}}AFX_APPEND_ODL}}
+};

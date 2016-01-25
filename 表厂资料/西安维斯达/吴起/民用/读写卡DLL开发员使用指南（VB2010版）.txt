@@ -1,0 +1,288 @@
+读写卡DLL开发员使用指南（适用于Visual Basic 2010版）
+
+1.涉及到的程序文件:
+  mfc100.dll
+  Mwic_32.dll
+  CardMan2012.dll
+
+2.涉及到的VB源程序接口文件:
+  Module1.vb
+
+3.使用Microsoft Visual Studio 2010 专业版建立VB工程：
+  将Module1.vb文件引入工程
+  将
+    mfc100.dll
+    Mwic_32.dll
+    CardMan2012.dll 
+  三个文件拷贝到工程的Release目录
+
+4.主要函数的使用指南：
+  首先将icdev和cityID定义成全局变量，比如：
+    Dim icdev As Integer
+    Dim cityID As Integer
+  并提前对cityID赋值，比如：
+    cityID=0或1或2,...
+
+  (1) 初始化设备函数   
+     __InitNew (ByRef icdev As Integer, ByVal port As Integer, ByVal baud As Integer) As Integer
+     参数：
+       icdev 设备句柄
+       port COM号(0,1,2,3,...)
+       baud 波特率(9600,4800,2400,1200,...)
+     返回值：
+       -1 表示不成功
+       成功时，icdev保存设备句柄
+     示例：
+        Dim port As Integer
+        Dim baud As Integer
+	Dim st As Integer
+        '输入port和baud的值
+        st = __InitNew ( icdev , port , baud )
+
+  (2) 释放设备函数
+     __FinishNew (ByRef icdev As Integer) As Integer
+     参数：
+       icdev 设备句柄
+     返回值：
+       -1 表示不成功
+     示例：
+	Dim st As Integer
+    	st = __FinishNew ( icdev )
+
+  (3) 卡型识别函数
+     __TestCardKindNew (ByVal icdev As Integer, ByVal cityID As Integer) As Integer
+     参数：
+       icdev 设备句柄
+       cityID 区域号(0,1,2,...)
+     返回值：
+       -1 表示不成功 , 成功：0,1~10、19
+       其中， 
+			0：未知卡
+			1：开户卡
+			2：购气卡
+			3：购气返回卡
+			4：超级卡=测试卡
+			5：恢复卡=初始化卡
+			6：检测卡
+			7：维修卡=故障卡
+			8：换表卡=换表卡A
+			9：参数卡
+			10：显示卡
+			19：空白新卡
+     示例：
+       Dim st As Integer
+       '输入cityID的值
+       st = __TestCardKindNew ( icdev , cityID ) 
+
+  (4) 开户或制开户卡函数
+     __MakeOpenUserCardNew (
+        ByVal icdev As Integer,
+        ByRef ID As Long, ByRef BuyedGasSum As Double, ByRef BuyedGasCount As Integer,
+        ByRef CloseTapeCircle As Integer, ByRef OverCurrentProtectStartFlag As Boolean,              ByVal cityID As Integer) As Integer
+     参数：
+       icdev 设备句柄
+       ID 卡号ID
+       BuyedGasSum 购气量,只保留两位小数
+       BuyedGasCount 购气次数
+       CloseTapeCircle 关阀周期
+       OverCurrentProtectStartFlag 过流保护启用标志
+       cityID 区域号(0,1,2,...)
+
+     返回值：
+       -1 表示不成功
+     示例：
+        Dim ID As Long
+        Dim BuyedGasSum As Single
+        Dim BuyedGasCount As Integer
+        Dim CloseTapeCircle As Integer
+        Dim OverCurrentProtectStartFlag As Boolean
+	Dim st As Integer
+        '输入ID、BuyedGasSum、BuyedGasCount、CloseTapeCircle、OverCurrentProtectStartFlag和cityID的值
+	st = __MakeOpenUserCardNew ( icdev , 
+          ID , BuyedGasSum , BuyedGasCount ,
+          CloseTapeCircle , OverCurrentProtectStartFlag , cityID
+        )
+
+  (5) 制购气卡函数
+     __MakeBuyGasCardNew (
+        ByVal icdev As Integer,
+        ByRef ID As Long, ByRef BuyedGasSum As Double, ByRef BuyedGasCount As Integer,
+        ByRef CloseTapeCircle As Integer, ByRef OverCurrentProtectStartFlag As Boolean,              ByVal cityID As Integer) As Integer
+     参数：
+       icdev 设备句柄
+       ID 卡号ID
+       BuyedGasSum 购气量,只保留两位小数
+       BuyedGasCount 购气次数
+       CloseTapeCircle 关阀周期
+       OverCurrentProtectStartFlag 过流保护启用标志
+       cityID 区域号(0,1,2,...)
+     返回值：
+       -1 表示不成功
+     示例：
+        Dim ID As Long
+        Dim BuyedGasSum As Single
+        Dim BuyedGasCount As Integer
+        Dim CloseTapeCircle As Integer
+        Dim OverCurrentProtectStartFlag As Boolean
+	Dim st As Integer
+        '输入ID、BuyedGasSum、BuyedGasCount、CloseTapeCircle、OverCurrentProtectStartFlag和cityID的值
+	st = __MakeBuyGasCardNew ( icdev , 
+          ID , BuyedGasSum , BuyedGasCount ,
+          CloseTapeCircle , OverCurrentProtectStartFlag , cityID
+        )
+
+  (6) 购气函数
+     __BuyGasNew (
+        ByVal icdev As Integer,
+        ByRef ID As Long, ByRef BuyedGasSum As Double, ByRef BuyedGasCount As Integer,
+        ByRef CloseTapeCircle As Integer, ByRef OverCurrentProtectStartFlag As Boolean,              ByVal cityID As Integer) As Integer
+     参数：
+       icdev 设备句柄
+       ID 卡号ID
+       BuyedGasSum 购气量,只保留两位小数
+       BuyedGasCount 购气次数
+       CloseTapeCircle 关阀周期
+       OverCurrentProtectStartFlag 过流保护启用标志
+       cityID 区域号(0,1,2,...)
+     返回值：
+       -1 表示不成功
+     示例：
+        Dim ID As Long
+        Dim BuyedGasSum As Single
+        Dim BuyedGasCount As Integer
+        Dim CloseTapeCircle As Integer
+        Dim OverCurrentProtectStartFlag As Boolean
+	Dim st As Integer
+        '输入ID、BuyedGasSum、BuyedGasCount、CloseTapeCircle、OverCurrentProtectStartFlag和cityID的值
+	st = __BuyGasNew( icdev , 
+          ID , BuyedGasSum , BuyedGasCount ,
+          CloseTapeCircle , OverCurrentProtectStartFlag , cityID
+        )
+
+  (7) 制工具卡函数
+     __MakeToolCardNew (
+       ByVal icdev As Integer, ByVal Kind As Integer, ByRef BuyedGasSum As Double,
+       ByVal cityID As Integer) As Integer
+     参数：
+       icdev 设备句柄
+       Kind 卡型号
+       其中， 
+			4：超级卡=测试卡
+			5：恢复卡=初始化卡
+			6：检测卡
+			7：维修卡=故障卡
+			8：换表卡=换表卡A
+			9：参数卡
+			10：显示卡
+			19：空白新卡
+
+       cityID 区域号(0,1,2,...)
+     返回值：
+       -1 表示不成功
+     示例：
+	Dim Kind As Integer
+        Dim BuyedGasSum As Single
+	Dim st As Integer
+        '输入Kind、BuyedGasSum和cityID的值
+	st =  __MakeToolCarddNew ( icdev , Kind , BuyedGasSum ,cityID )
+
+  (8) 读普通卡函数: 开户卡或购气卡 
+     __ReadCardNew (ByVal icdev As Integer, ByVal Kind As Integer,
+       ByRef ID As Long, ByRef BuyedGasSum As Double, ByRef BuyedGasCount As Integer,
+       ByRef CloseTapeCircle As Integer, ByRef OverCurrentProtectStartFlag As Boolean,
+       ByRef ReturnReadFlag As Boolean,
+       ByVal cityID As Integer) As Integer
+     参数：
+       icdev 设备句柄
+       Kind 卡型号( 1 或 2 或 3)
+       ID 卡号ID
+       BuyedGasSum 购气量剩余,只保留两位小数
+       BuyedGasCount 购气次数
+       CloseTapeCircle 关阀周期
+       OverCurrentProtectStartFlag 过流保护启用标志
+       ReturnReadFlag 回读标志
+       cityID 区域号(0,1,2,...)
+     返回值：
+       -1 表示不成功
+     示例：
+       Dim Kind As Integer
+       Dim ID As Long
+       Dim BuyedGasSum As Single
+       Dim BuyedGasCount As Integer
+       Dim CloseTapeCircle As Integer
+       Dim OverCurrentProtectStartFlag As Boolean
+       Dim ReturnReadFlag As Boolean
+       Dim st As Integer
+       st = __ReadCardNew ( icdev , Kind , ID , BuyedGasSum , BuyedGasCount ,
+                         CloseTapeCircle , OverCurrentProtectStartFlag , ReturnReadFlag ,
+                         cityID
+        )
+
+  (9) 读检测卡函数
+     __ReadDetectedCardNew (
+          ByVal icdev As Integer,
+          ByRef ID As Long, ByRef OpenUserStatus As Integer, ByRef BuyedGasSum As Double,
+          ByRef BuyedGasCount As Integer, ByRef CloseTapeCircle As Integer, ByRef           OverCurrentProtectValue As Integer,
+          ByRef CloseTapeFlag As Boolean, ByRef UnusedGasDays As Integer,
+          ByRef TotalUsedGasSum As Double, ByRef TotalBuyedGasSum As Double,
+          ByRef Type As Long,
+          ByVal cityID As Integer
+          ) As Integer
+     参数：
+       icdev 设备句柄
+       ID 卡号ID
+       OpenUserStatus 开户状态
+       BuyedGasSum 购气量剩余
+       BuyedGasCount 购气次数
+       CloseTapeCircle 关阀周期
+       OverCurrentProtectValue 过流保护值
+       CloseTapeFlag 关阀标志
+       UnusedGasDays 未用气天数
+       TotalUsedGasSum 累计用气量
+       TotalBuyedGasSum 累计购气量
+       Type 卡型号
+       cityID 区域号(0,1,2,...)
+     返回值：
+       -1 表示不成功
+     示例：
+       Dim ID As Integer
+       Dim OpenUserStatus As Integer
+       Dim BuyedGasSum As Single
+       Dim BuyedGasCount As Integer
+       Dim CloseTapeCircle As Integer
+       Dim OverCurrentProtectStartFlag As Boolean
+       Dim CloseTapeFlag As Boolean
+       Dim UnusedGasDays As Integer
+       Dim TotalUsedGasSum As Double
+       Dim TotalBuyedGasSum As Double
+       Dim Type As Long
+       Dim st As Integer
+       st = __ReadDetectedCardNew ( icdev , ID , OpenUserStatus , BuyedGasSum , BuyedGasCount ,
+                         CloseTapeCircle , OverCurrentProtectStartFlag , CloseTapeFlag ,
+                         UnusedGasDays , TotalUsedGasSum , TotalBuyedGasSum , Type ,
+                         cityID
+        )
+
+  (10) 写厂商代码函数
+     __WriteFirmTagNew (ByVal icdev As Integer, ByVal cityID As Integer) As Integer
+     参数：
+       icdev 设备句柄
+       cityID 区域号(0,1,2,...)
+     返回值：
+       -1 表示不成功
+     示例：
+       Dim st As Integer
+       '输入cityID的值
+       st = __WriteFirmTagNew ( icdev , cityID )
+
+  (11) 校验厂商代码函数
+     __CheckFirmTagNew (ByVal icdev As Integer, ByVal cityID As Integer) As Integer
+     参数：
+       icdev 设备句柄
+       cityID 区域号(0,1,2,...)
+     返回值：
+       -1 表示不成功
+     示例：
+       Dim st As Integer
+       '输入cityID的值
+       st = __CheckFirmTagNew ( icdev , cityID )

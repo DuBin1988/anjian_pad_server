@@ -1,0 +1,292 @@
+﻿<?xml version="1.0"  encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping >
+	<!--营收部用户档案-->
+	<class entity-name="T_IC_USERFILE" table="T_IC_USERFILE" >
+	   <id name="id" type="string">
+			<generator class="uuid.hex"></generator>
+		</id>
+		<!--售气量 初始化卡购气用-->
+		<property name="SELLGAS_GAS" type="double"/>
+		<!--是否交维管费ISPAY_WGF-->
+		<property name="ISPAY_WGF" type="string"/>
+		<!--网点、部门-->
+		<property name="OP_DEPART" type="string"/>
+		<!--表常数-->
+		<property name="constant" type="double"/>
+		<!--告警气量-->
+		<property name="alarm" type="double"/>
+		<!--卡号-->
+		<property name="CARD_ID" type="string"/>
+		<!--判断卡号是否重复-->
+		<property name="PDKAid" type="int"/>
+		<!---判断卡号是否是10位数字-->
+		<property name="PDKAid10" type="int"/>
+		
+		<!--翻页用的INT-->
+		<property name="yiyi" type="int"/>
+		<!--用户名称(工业所有权单位)-->
+		<property name="USER_NAME" type="string"/>
+		<!--使用单位名称-->
+		<property name="USE_UNITNAME" type="string"/>
+		<!--用户电话-->
+		<property name="USER_LINK" type="string"/>
+		<!--网格编码-->
+		<property name="REGION_NAME" type="string"/>
+			<!--城市-->
+		<property name="city" type="string"/>
+		 
+		<!--街道-->
+		<property name="ROAD" type="string"/>
+		<!--小区编号-->
+		<property name="UNIT_ID" type="string"/>
+		<!--小区名称-->
+		<property name="UNIT_NAME" type="string"/>   
+		<!--地址 -->
+		<property name="UNIT_ADDRESS" type="string"/>
+		<!--楼号 -->
+		<property name="CUS_DOM" type="string"/>
+		<!--单元号 -->
+		<property name="CUS_DY" type="string"/>
+		<!--楼层 -->
+		<property name="CUS_FLOOR" type="string"/>
+		<!--房号 -->
+		<property name="CUS_ROOM" type="string"/>
+		<!--工业表的具体位置 -->
+		<property name="TABLE_SPOT" type="string"/>
+		<!--用户类别 -->
+		<property name="USER_CLASS" type="string"/>
+	
+		
+		<!--身份证号 -->
+		<property name="user_idnumber" type="string"/>
+		<!--气表品牌 -->
+		<property name="gas_watchbrand" type="string"/>
+		<!--气表型号 -->
+		<property name="meters_type" type="string"/>
+		<!--累计购气量 -->
+		<property name="cumulativ_epurchase" type="double"/>
+		<!--气表厂家 -->
+		<property name="gasmeterman_ufacturers" type="string"/>
+		<!--最后购气日期 -->
+		<property name="finabuygas_date" type="date"/>
+		<!--气表底数-->
+		<property name="gasmeter_accomodations" type="double"/>
+		<!--停用日期-->
+		<property name="stops_date" type="date"/>
+		<!--购气金额-->
+		<property name="MONEY" type="double"/>
+		
+		<!--灶具 -->
+		<property name="COOKER" type="boolean"/>
+		<!--壁挂炉 -->
+		<property name="WALLSTOVE" type="boolean"/>
+		<!--热水器 -->
+		<property name="HEATER" type="boolean"/>
+		<!--上次购气日期-->
+		<property name="CARD_BUY_DATE" type="date"/>
+		<!--上次累计购气量 -->
+		<property name="SUMHJ" type="double"/>
+		<!--启用日期 -->
+		<property name="STARTDATE2" type="date"/>
+		
+
+		<!--归口单位-->
+		<property name="SUBUNIT" type="string"/>
+		<!--用户性质-->
+		<property name="USER_NATURE" type="string"/>
+		<!--用户类型-->
+		<property name="USER_TYPE" type="string"/>
+		<!--用气设备  -->
+		<property name="USER_EQUIPMENT" type="string"/>		
+		<!--设备负荷  -->
+		<property name="EQ_PURSURE" type="double"/>
+		<!--设备负荷单位  -->
+		<property name="EQ_PURSUREDANWEI" type="string"/>
+		<!--立管编号  -->
+		<property name="PIPE_CODE" type="string"/>
+		<!--调压箱编号  -->
+		<property name="TANK_CODE" type="string"/>
+		<!--管线编号-->
+		<property name="LINE_CODE" type="string"/>
+		<!--建档日期 -->
+		<property name="CUS_DATE" type="date"/>
+		<!--点火日期 -->
+		<property name="STR_USEDATE" type="date"/>
+		<!--初始化卡日期 -->
+		<property name="ISSUE_DATE" type="date"/>
+		<!--用户状态-->
+		<property name="USE_FLAG" type="string"/>
+		<!--气价-->
+		<property name="PRICE" type="double"/>
+		<!-- 中心站 -->
+		<property name="CENTER_STATION" type="string"/>
+		<!-- 冬季限购气量 -->
+		<property name="LIMITGAS_WINTER" type="double"/>
+		<!-- 夏季限购气量 -->
+		<property name="LIMITGAS_SUMMER" type="double"/>
+		<!-- 操作地点/机器号 -->
+		<property name="OP_SPOT" type="string"/>
+		<!-- 操作员编号 -->
+		<property name="OP_ID" type="string"/>
+		<!-- 操作员 -->
+		<property name="OP_CODE" type="string"/>
+		<!--气价类型-->
+		<property name="USERLEVEL_TYPE" type="string"/>
+		<!-- 操作日期 -->
+		<property name="OP_DATE" type="date"/>
+		<!--操作时间-->
+		<property name="OP_TIME" type="time"/>
+		<!-- 维管费交至日期 -->
+		<property name="WGFLASTDATE" type="date"/>
+		<!-- 维管费用户类型 -->
+		<property name="WGFUSERTYPE" type="string"/>
+		<!-- 表型厂家编号 -->
+		<property name="METER_TYPES_ID" type="string"/>
+		<!-- 表型厂家名称 -->
+		<property name="METER_TYPES_NAME" type="string"/>
+		<!-- 卡表地址(无线) -->
+		<property name="TABLE_ADDRESS" type="string"/>
+		<!-- 基表类型 -->
+		<property name="JB_TYPE" type="string"/>
+		<!-- 基表(流量计)表号 -->
+		<property name="JB_TABLE_CODE" type="string"/>
+		<!-- 基表厂家 -->
+		<property name="JB_FACTORY" type="string"/>
+		<!-- 是否IC卡表 -->
+		<property name="IS_IC" type="string"/>
+		<!-- 基表安装底数 -->
+		<property name="JB_FIRST_NUM" type="string"/>
+		<!-- 基表型号 -->
+		<property name="JB_TYPE_CODE" type="string"/>
+		<!-- 计量表编码 -->
+		<property name="TABLE_CODE" type="string"/>
+		<!-- 安全等级 -->
+		<property name="SAFE_LEVEL" type="string"/>
+		<!-- 信用等级 -->
+		<property name="CREDIT_LEVEL" type="string"/>
+		
+		<!-- 备注 -->
+		<property name="BZ" type="string"/>
+		<!-- 工业维管费单位编号 -->
+		<property name="WGF_UNIT_ID" type="string"/>
+		<!-- 工业维管费单位名称-->
+		<property name="WGF_UNIT_NAME" type="string"/>
+		<!-- 工业维管费设备 -->
+		<property name="WGF_EQUIPMENT" type="string"/>
+		<!-- 是否抄表 -->
+		<property name="HAND_IS" type="string"/>
+		
+		<!-- 抄收室 -->
+		<property name="DATAROOM" type="string"/>
+		<!-- 抄表员名称 -->
+		<property name="HAND_NAME" type="string"/>
+		<!-- 抄表缴费单位编号-->
+		<property name="HAND_UNIT_ID" type="string"/>
+		<!-- 抄表缴费单位名称 -->
+		<property name="HAND_UNIT_NAME" type="string"/>
+		<!-- 抄表缴费单位地址 -->
+		<property name="HAND_UNIT_ADDRESS" type="string"/>
+		
+		<!-- 最近一次抄表基表数-->
+		<property name="JB_NUNBER" type="double"/>
+		<!--抄表计划日期 -->
+		<property name="PLAN_DATE" type="date"/>
+		<!-- 计费倍率-->
+		<property name="MULTIPLY" type="double"/>
+		<!-- 用户累计购气量 -->
+		<property name="SUM_GAS" type="double"/>
+		<!--卡表累计购气量 -->
+		<property name="TABLE_SUM_GAS" type="double"/>
+		
+		<!-- 周检调整量 -->
+		<property name="CHECK_ADJUST" type="double"/>
+		<!-- 无线表调价调整量 -->
+		<property name="PRICE_ADJUST" type="double"/>
+		<!-- 购气次数-->
+		<property name="BUY_COUNT" type="double"/>
+		<!-- 旧单位名称 -->
+		<property name="OLD_UNITNAME" type="string"/>
+		<!-- 旧用户地址-->
+		<property name="OLD_USERADDRESS" type="string"/>
+		<!-- 计量方式 -->
+		<property name="measure_way" type="string"/>
+		<!-- 无线表新单价-->
+		<property name="PRICENEW" type="double"/>
+		<!-- 无线表新单价更改标志 -->
+		<property name="PRICEMODIFY" type="string"/>
+		<!-- 无线表新单价生效日期-->
+		<property name="PRICEDATE" type="date"/>
+		<!--是否发卡-->
+		<property name="USE_NOTKA" type="string"/>
+		<!--建档完成标记-->
+		<property name="USERFILESEND" type="string"/>
+		<!--上次周检日期-->
+		<property name="ZHOUJIANDATE" type="date"/>
+		
+		<!--门牌号-->
+		<property name="f_apartment" type="string"/>
+		<!--所属区域-->
+		<property name="f_area" type="string"/>
+			<!--联系人-->
+		<property name="f_linkname" type="string"/>
+			<!--单位编号-->
+		<property name="f_unitid" type="string"/>
+	
+	  
+		
+		
+		<!--换表日期-->
+		<property name="lasthbdate" type="date"/>
+		<property name="lasthbreason" type="string"/>
+		
+			<!--补缴气费日期-->
+		<property name="lastbujiaodate" type="date"/>
+		<property name="lastbujiaotype" type="string"/>
+		<property name="lastbujiaofee" type="double"/>
+		
+		
+			<!--转移气费日期-->
+		<property name="lastzydate" type="date"/>
+		<property name="lastzytype" type="string"/>
+		<property name="lastzyfee" type="double"/>
+		
+		<!--工业维修费金额-->
+		<property name="f_gywgfprice" type="double" />
+		<!--表封-->
+		<property name="biaofeng" type="string" />
+		
+		
+		
+		<!--最后一次抄表基数-->
+		<property name="f_lastjbnumber" type="double" />
+		<!--最后一次抄表日期-->
+		<property name="f_lastcbdate" type="date" />
+		<!--IC卡余气量-->
+		<property name="f_yuqi" type="double" />
+	
+		<!--周检表最后一次抄表基数-->
+		<property name="f_zjlastjbnumber" type="double" />
+		<!--IC卡余气量-->
+		<property name="f_zjyuqi" type="double" />
+	
+		<!--射频卡参数-->
+		<!-- 死表关阀-->
+			<property name="IS_CLOSE" type="string" />
+	<!-- 二、	第一次关阀天数-->
+			<property name="IS_CLOSE_ONE" type="int" />
+	<!--三、	第二次关阀天数-->
+			<property name="IS_CLOSE_TWO" type="int" />
+	<!-- 四、	限购上限 -->
+			<property name="IS_TABLELIMIT" type="string" />
+	<!-- 五、	上限气量-->
+			<property name="IS_TABLELIMIT_GAS" type="int" />
+	<!-- 六、	单价类型-->
+			<property name="PRICE_TYPE" type="string" />
+	
+		
+		
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,20 @@
+<?xml version="1.0"  encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="test">
+	<!--系统用户信息-->
+	<class entity-name="t_user" table="t_user" dynamic-update="true">
+		 <id name="ID" type="string">
+			<generator class="uuid.hex"></generator>
+		</id>
+		<property name="name" type="string"/>
+		<property name="ename" type="string"/>
+		<!-- 用做pad串号 -->
+     	<property name="f_content" type="string"/>
+     	<!-- 用作pad串号和用户是否关联 -->
+     	<property name="forumlogin" type="string"/>
+     	<!-- 用作翻页 -->
+     	<property name="yi" type="int"/>
+	</class>
+</hibernate-mapping>

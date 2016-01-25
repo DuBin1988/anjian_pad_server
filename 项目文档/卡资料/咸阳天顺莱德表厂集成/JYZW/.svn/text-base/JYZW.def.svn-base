@@ -1,0 +1,10 @@
+; JYZW.def : Declares the module parameters for the DLL.
+
+LIBRARY      "JYZW"
+DESCRIPTION  'JYZW Windows Dynamic Link Library'
+
+EXPORTS
+    ; Explicit exports can go here
+	rdcompany
+	readCard
+	writeOrders

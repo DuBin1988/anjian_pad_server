@@ -1,0 +1,4 @@
+//档案变更
+delete from t_danganbg；
+//登录日志
+delete from  t_operatelog

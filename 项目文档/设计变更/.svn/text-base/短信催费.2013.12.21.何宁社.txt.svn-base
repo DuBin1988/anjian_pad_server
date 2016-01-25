@@ -1,0 +1,68 @@
+1. 需求
+
+所有抄表录入工作完成后，一次性对还没有发送短信的用户进行催费。
+
+2. 功能设计
+
+2.1 提供短信催费界面，可以根据条件查询还没有进行催费的用户情况。
+2.2 在界面上提供短信发送按钮，点击短信发送，将对所有未进行短信催费的用户进行催费。
+2.3 催费完成后，界面上显示短信发送总条数，成功条数，不成功条数及原因等。
+
+3. 实现设计
+
+3.1 提供专用短信催费服务，服务参数包括：是否全部发短信，短信格式等内容。
+3.2 短信催费服务完成后，将返回本次短信发送总条数，成功条数，不成功条数等内容。
+
+4. 短信格式
+
+民用：
+
+
+尊敬的{xxxxx}您本次表码{xxxxxx}气量{xxxxx}气费{xxxxxxx}元{x}本次余额{xxxxxxxx}请及时缴费{x}详电2993016{x}
+
+尊敬的{xxxxxxxxx}您本次天然气气费金额为{xxxxxxxxx}元{x}请于三天之内缴清{x}以免停气给您带来不便{x}详电2528088{x}
+
+尊敬的X4：您本次表码X5，气量X4，气费X7元，本次余额X7，请及时缴费。详电2993016【麻城天然气】
+
+商业：
+
+尊敬的X8，您本次天然气气费金额为X9元，请于三天之内缴清，以免停气给您带来不便。详电2528088【麻城天然气】
+
+4. 短信内容获取
+
+4.1 抄表记录t_handplan表增加f_sms字段代表是否已生成短信（是、否）。
+
+4.3 建立短信发送表，内容包括手机号，发送内容，发送状态（已发、未发、出错），错误内容。
+
+4.2 短信分产生跟发送两个过程，产生时，用sql语句直接将内容插入短信表。发送时，后台服务从
+发送表里取未发送的内容全部发送。
+
+4.1 采用sql语句获取发送所需数据，直接插入短信发送表。
+
+对于民用户，sql语句先获取所有未发送短信的抄表记录的
+用户编号，再获取这些编号的用户名，最后一次指数，欠费总气量，总金额，余额。
+
+insert into t_sms(f_phone,f_content,f_state) 
+select h.f_phone, '尊敬的' + h.f_username + '：您本次表码' + convert(varchar(200),h.lastrecord) + 
+'，气量' + convert(varchar(200),h.oughtamount) + '，气费' + convert(varchar(200),h.oughtfee) + '元，本次余额' 
++ convert(varchar(200),h.f_zhye-isnull(SUM(h2.oughtfee),0)) + '，请及时缴费。详电2993016【麻城天然气】', '未发' 
+from t_handplan h join
+(select f_userid, MAX(id) id from t_handplan where f_sms is null and f_usertype='民用' group by f_userid) s on s.id = h.id 
+left join t_handplan h2 on h.f_userid=h2.f_userid and h2.shifoujiaofei='否' and h2.f_state='已抄表'
+group by h.f_username,h.lastrecord,h.oughtamount,h.oughtfee,h.f_zhye,h.f_phone
+
+
+对于商用户，由于存在一户多表情况，根据单位名称汇总。
+
+insert into t_sms(f_phone,f_content,f_state) 
+select uf.f_phone, 
+'尊敬的' + uf.f_unitname + '，您本次天然气气费金额为' + convert(varchar(200),SUM(h.oughtfee)) + 
+'元，请于三天之内缴清，以免停气给您带来不便。详电2528088【麻城天然气】', '未发'
+from (select distinct f_username from t_handplan where f_sms is null and f_usertype='非民用') u
+left join t_unit uf on u.f_username=uf.f_unitname
+left join t_handplan h on u.f_username=h.f_username
+where h.shifoujiaofei='否' and h.f_state='已抄表'
+group by uf.f_unitname, uf.f_phone
+
+5. 短信发送由后台服务完成，后台服务从短信表里取所有短信，进行发送。发送成功，状态变为已发，不成功，状态
+为错误，并填写错误内容。

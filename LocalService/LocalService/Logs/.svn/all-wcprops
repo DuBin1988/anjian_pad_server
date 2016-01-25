@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/LocalService/LocalService/Logs
+END
+FileAppender.cs
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/LocalService/LocalService/Logs/FileAppender.cs
+END
+ConsoleAppender.cs
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/LocalService/LocalService/Logs/ConsoleAppender.cs
+END
+Log.cs
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/LocalService/LocalService/Logs/Log.cs
+END
+IAppender.cs
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/LocalService/LocalService/Logs/IAppender.cs
+END
+LogConfig.cs
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/LocalService/LocalService/Logs/LogConfig.cs
+END

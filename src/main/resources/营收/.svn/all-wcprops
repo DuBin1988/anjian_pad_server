@@ -1,0 +1,533 @@
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/repository/!svn/ver/29462/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6
+END
+lostgas.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/lostgas.hbm.xml
+END
+chaiqian.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/chaiqian.hbm.xml
+END
+changmeter.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/changmeter.hbm.xml
+END
+plchangelist.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/plchangelist.hbm.xml
+END
+unit.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/unit.hbm.xml
+END
+zhinajinxiugai.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/zhinajinxiugai.hbm.xml
+END
+devices.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/devices.hbm.xml
+END
+reversal.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/reversal.hbm.xml
+END
+transfer.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/transfer.hbm.xml
+END
+metertypeedit.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/metertypeedit.hbm.xml
+END
+road.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/road.hbm.xml
+END
+fileschangeslist.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/fileschangeslist.hbm.xml
+END
+invoicewith.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/invoicewith.hbm.xml
+END
+mrplan.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/mrplan.hbm.xml
+END
+userinfo.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/repository/!svn/ver/29462/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/userinfo.hbm.xml
+END
+invoicedistribution.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/invoicedistribution.hbm.xml
+END
+dropcard.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/dropcard.hbm.xml
+END
+fapiaoinfos.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/fapiaoinfos.hbm.xml
+END
+otherfee.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/otherfee.hbm.xml
+END
+returnfaka.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/returnfaka.hbm.xml
+END
+xiangougassetting.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/xiangougassetting.hbm.xml
+END
+initicard.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/initicard.hbm.xml
+END
+handpapercond.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/handpapercond.hbm.xml
+END
+managementfeesformetert.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/managementfeesformetert.hbm.xml
+END
+fileschange.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/fileschange.hbm.xml
+END
+switchmoney.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/switchmoney.hbm.xml
+END
+applyannex.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/applyannex.hbm.xml
+END
+stovefee.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/stovefee.hbm.xml
+END
+fillgas.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/fillgas.hbm.xml
+END
+handpapercondfmy.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/handpapercondfmy.hbm.xml
+END
+gewerbeamt.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/gewerbeamt.hbm.xml
+END
+userfiles1.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/userfiles1.hbm.xml
+END
+userfiles2.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/userfiles2.hbm.xml
+END
+otherfillgas.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/otherfillgas.hbm.xml
+END
+userfiles3.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/userfiles3.hbm.xml
+END
+userfiles4.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/userfiles4.hbm.xml
+END
+handplan.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/handplan.hbm.xml
+END
+clearzero.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/clearzero.hbm.xml
+END
+cbreversal.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/cbreversal.hbm.xml
+END
+inspectdetail.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/inspectdetail.hbm.xml
+END
+itemcard.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/itemcard.hbm.xml
+END
+piliangchange.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/piliangchange.hbm.xml
+END
+area2.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/repository/!svn/ver/26711/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/area2.hbm.xml
+END
+xiaccount.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/xiaccount.hbm.xml
+END
+fazhe.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/fazhe.hbm.xml
+END
+mrinput.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/mrinput.hbm.xml
+END
+feimychaobiao.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/feimychaobiao.hbm.xml
+END
+xuqiliang.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/xuqiliang.hbm.xml
+END
+userfiles.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/userfiles.hbm.xml
+END
+gonggao2.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/repository/!svn/ver/29462/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/gonggao2.hbm.xml
+END
+jbpay.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/jbpay.hbm.xml
+END
+xiangoujilui.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/xiangoujilui.hbm.xml
+END
+myfaka.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/myfaka.hbm.xml
+END
+aeratemanage.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/aeratemanage.hbm.xml
+END
+rewritepassbook.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/rewritepassbook.hbm.xml
+END
+upload.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/upload.hbm.xml
+END
+recordcancel.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/recordcancel.hbm.xml
+END
+renewalcard.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/renewalcard.hbm.xml
+END
+weihufeiprice.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/weihufeiprice.hbm.xml
+END
+chongzheng.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/chongzheng.hbm.xml
+END
+cancellation.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/cancellation.hbm.xml
+END
+chaiqiangai.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/chaiqiangai.hbm.xml
+END
+gasaddress1.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/gasaddress1.hbm.xml
+END
+gasaddress2.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/repository/!svn/ver/29462/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/gasaddress2.hbm.xml
+END
+rectify.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/rectify.hbm.xml
+END
+inspect.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/inspect.hbm.xml
+END
+priceedit.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/priceedit.hbm.xml
+END
+area.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/area.hbm.xml
+END
+kaipiao.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/kaipiao.hbm.xml
+END
+rezhezi.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/rezhezi.hbm.xml
+END
+clearzerocard.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/clearzerocard.hbm.xml
+END
+bucardfapiao.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/bucardfapiao.hbm.xml
+END
+stopgas.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/stopgas.hbm.xml
+END
+repair.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/repair.hbm.xml
+END
+xiugaikafei.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/xiugaikafei.hbm.xml
+END
+mianjiao.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/mianjiao.hbm.xml
+END
+sellinggas.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/sellinggas.hbm.xml
+END
+enabled.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/enabled.hbm.xml
+END
+account.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/account.hbm.xml
+END
+renewalpassbook.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/renewalpassbook.hbm.xml
+END
+shoulilist.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/shoulilist.hbm.xml
+END
+sms.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/sms.hbm.xml
+END
+fileschangelist.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/fileschangelist.hbm.xml
+END
+repairefee.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/repairefee.hbm.xml
+END
+security.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/security.hbm.xml
+END
+automaticxz.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/automaticxz.hbm.xml
+END
+changcard.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/changcard.hbm.xml
+END
+fmybaozhengjin.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/repository/!svn/ver/26577/huanghesafecheckserver/src/main/resources/%E8%90%A5%E6%94%B6/fmybaozhengjin.hbm.xml
+END

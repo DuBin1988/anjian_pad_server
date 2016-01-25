@@ -1,0 +1,429 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+
+<head>
+    <title>s2</title>
+    <style type="text/css">
+    html, body {
+	    height: 100%;
+	    overflow: auto;
+    }
+    body {
+	    padding: 0;
+	    margin: 0;
+    }
+    #silverlightControlHost {
+	    height: 100%;
+	    text-align:center;
+    }
+    </style>
+    <script type="text/javascript" src="Silverlight.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript">
+        function onSilverlightError(sender, args) {
+            var appSource = "";
+            if (sender != null && sender != 0) {
+                appSource = sender.getHost().Source;
+            }
+
+            var errorType = args.ErrorType;
+            var iErrorCode = args.ErrorCode;
+
+            if (errorType == "ImageError" || errorType == "MediaError") {
+                return;
+            }
+
+            var errMsg = "Unhandled Error in Silverlight Application " + appSource + "\n";
+
+            errMsg += "Code: " + iErrorCode + "    \n";
+            errMsg += "Category: " + errorType + "       \n";
+            errMsg += "Message: " + args.ErrorMessage + "     \n";
+
+            if (errorType == "ParserError") {
+                errMsg += "File: " + args.xamlFile + "     \n";
+                errMsg += "Line: " + args.lineNumber + "     \n";
+                errMsg += "Position: " + args.charPosition + "     \n";
+            }
+            else if (errorType == "RuntimeError") {
+                if (args.lineNumber != 0) {
+                    errMsg += "Line: " + args.lineNumber + "     \n";
+                    errMsg += "Position: " + args.charPosition + "     \n";
+                }
+                errMsg += "MethodName: " + args.methodName + "     \n";
+            }
+
+            throw new Error(errMsg);
+        }
+
+        //日志显示
+        function showMessage(msg) {
+            var oMsg = $("#msg").val();
+            $("#msg").val(oMsg + msg + "\n");
+        }
+
+        //光标到银光控件
+        $(document).ready(function () {
+            $("#sl").focus();
+        });
+
+
+
+    
+       
+    </script>
+     <!--卡折函数-->
+     <script type="text/javascript">
+
+         //发折
+         function writeFold(userid) {
+               var result = document.forms[0].gasFold.writeTrack(userid);
+              if (result == "0") {
+                 return "{result:true}";
+             }
+             else {
+                 alert("刷折失败,请重试!");
+                 return "{result:false,tishi:'刷折失败,请重试!'}";
+             }
+
+         }
+
+
+
+        
+         //读折
+         function readFold() {
+             var v = document.forms[0].gasFold.readTrack();
+              alert(v);
+             if(v.length < 6) {
+                 alert("刷折失败,请重试!");
+                 return "{result:false,tishi:'刷折失败,请重试!'}";
+             }
+             else{
+               return "{result:true,f_userid:'"+v+"'}";
+             }
+         }
+
+
+     
+         //发卡
+         function InitCard(alias, cardNumber, gasAmount, count,price,money,pricedate) {
+                alert( alias + "|" + cardNumber + "|" + gasAmount + "|" + count + "|" + price+"|"+money+"|"+pricedate);
+               //天顺,莱德
+             if (alias == "5" || alias == "6") {
+                 var factory = aliasConvert(alias);
+                 var ren;
+                 if (alias == "5") {
+                     ren = document.forms[0].tsCard.Init(factory, cardNumber, gasAmount, count, price);
+                 }
+                 else {
+                     ren = document.forms[0].tsCard.AoteSellGas(factory, cardNumber, gasAmount,money,price, count, price,pricedate,1);
+                
+                 }
+                 if (ren == "0") {
+                     return "{result:true}";
+                 }
+                 else {
+                     return "{result:false,tishi:'发卡失败!'}";
+                 }
+             }
+             //其他
+             else {
+                 var v = document.forms[0].gasCard.makeCard(cardNumber, gasAmount, count, alias);
+                 if (v == "0") {
+                     return "{result:true}";
+                 }
+                 else {
+                     return "{result:false,tishi:'发卡失败!'}";
+                 }
+             }
+             return "{result:false,tishi:'发卡失败!'}";
+         }
+
+
+         //别名转换，天顺/莱德使用
+         function aliasConvert(alias) {
+             if (alias == "5") {
+                 return "TianShun";
+             }
+             else if (alias == "6") {
+                 return "LaiDe";
+             }
+         }
+
+         //售气
+         function SellGas(alias, cardNumber, gasAmount, count, price, money, pricedate) {
+             alert(alias + "|" + cardNumber + "|" + gasAmount + "|" + count + "|" + price + "|" + money + "|" + pricedate);
+             var kahao;
+             var qiliang;
+             var cishu;
+             var factory = alias;
+             //售气前检查
+             //莱德或者天顺
+             if (alias == "5" || alias == "6") {
+                 factory = aliasConvert(alias);
+                 var tsRen = document.forms[0].tsCard.AoteReadCard();
+                 if (tsRen == 0) {
+                     kahao = document.forms[0].tsCard.GetCardID();
+                     qiliang = document.forms[0].tsCard.GetGas();
+                     cishu = document.forms[0].tsCard.GetTimes();
+                 }
+                 else {
+                     alert("读卡失败!")
+                     return "{result:false,tishi:'读卡失败!'}";
+                 }
+             }
+             //其他卡
+             else {
+                 kahao = document.forms[0].gasCard.getCardID(alias);
+                 //气量
+                 qiliang = document.forms[0].gasCard.getPurchaseAmount(alias);
+                 //次数
+                 cishu  = document.forms[0].gasCard.getCount(alias);
+             }
+             if (kahao.length < 6) {
+                 alert("读卡错误！读取的数据为:" + kahao);
+                 return "{result:false,tishi:'读卡失败!'}";
+             }
+             if (cardNumber != "" && cardNumber != kahao) {
+                 alert("卡号不一致,该卡可能不是这个用户的卡!");
+                 return "{result:false,tishi:'读卡失败!'}";
+             }
+            // if (qiliang > 0) {
+            //     alert("卡上有气,请将卡插入表中!");
+            //     return "{result:false,tishi:'读卡失败!'}";
+            // }
+
+             //写卡售气
+             cishu += 1;
+             if (alias == "5" || alias == "6") {
+                 var sellRen = document.forms[0].tsCard.AoteSellGas(factory, cardNumber, gasAmount, money, price, cishu, price, pricedate, 1);
+                 if (sellRen == 0) {
+                     alert("购气成功!");
+                     return "{isValid:true,BuyTimes:'" + cishu + "'}";
+                 }
+                 else {
+                     alert("购气失败!");
+                     return "{isValid:false,tishi:'购气失败!'}";
+                 }
+             }
+             else {
+                var oldRen = document.forms[0].gasCard.writeCard(cardNumber, gasAmount, cishu, alias);
+                 if (oldRen == 0) {
+                     alert("购气成功!");
+                     return "{isValid:true,BuyTimes:'" + cishu + "'}";
+                 }
+                 else {
+                     alert("购气失败!");
+                     return "{isValid:false,tishi:'购气失败!'}";
+                 }
+             }
+         }
+
+
+
+
+         //冲正
+         function ChongZheng(alias, cardNumber, gasAmount, count, price, money, pricedate) {
+              alert(alias + "|" + cardNumber + "|" + gasAmount + "|" + count + "|" + price + "|" + money + "|" + pricedate);
+             var kahao;
+             var qiliang;
+             var cishu;
+             var factory = alias;
+             //售气前检查
+             //莱德或者天顺
+             if (alias == "5" || alias == "6") {
+                 factory = aliasConvert(alias);
+                 var tsRen = document.forms[0].tsCard.AoteReadCard();
+                 if (tsRen == 0) {
+                     kahao = document.forms[0].tsCard.GetCardID();
+                     qiliang = document.forms[0].tsCard.GetGas();
+                     cishu = document.forms[0].tsCard.GetTimes();
+                 }
+                 else {
+                     alert("读卡失败!")
+                     return "{result:false,tishi:'读卡失败!'}";
+                 }
+             }
+             //其他卡
+             else {
+                 kahao = document.forms[0].gasCard.getCardID(alias);
+                 //气量
+                 qiliang = document.forms[0].gasCard.getPurchaseAmount(alias);
+                 //次数
+                 cishu = document.forms[0].gasCard.getCount(alias);
+             }
+             alert(kahao + "|" + qiliang + "|" + cishu );
+         
+             if (kahao.length < 6) {
+                 alert("读卡错误！读取的数据为:" + kahao);
+                 return "{result:false,tishi:'读卡失败!'}";
+             }
+             if (cardNumber != "" && cardNumber != kahao) {
+                 alert("卡号不一致,该卡可能不是这个用户的卡!");
+                 return "{result:false,tishi:'读卡失败!'}";
+             }
+             if (qiliang != gasAmount) {
+                  alert("气量不一致,无法冲正!");
+                  return "{result:false,tishi:'读卡失败!'}";
+              }
+
+             //写卡售气
+             if (alias == "5" || alias == "6") {
+                 var sellRen = document.forms[0].tsCard.AoteRollBackGas(factory, cardNumber, gasAmount, money, price, cishu, price, pricedate, 0);
+                 if (sellRen == 0) {
+                     alert("冲正成功!");
+                     return "{isValid:true,BuyTimes:'" + cishu + "'}";
+                 }
+                 else {
+                     alert("冲正失败!");
+                     return "{isValid:false,tishi:'冲正失败!'}";
+                 }
+             }
+             else {
+                 var oldRen = document.forms[0].gasCard.rollBack( gasAmount, alias);
+                 if (oldRen == 0) {
+                     alert("冲正成功!");
+                     return "{isValid:true,BuyTimes:'" + cishu + "'}";
+                 }
+                 else {
+                     alert("冲正失败!");
+                     return "{isValid:false,tishi:'购气失败!'}";
+                 }
+             }
+         }
+
+
+         //补卡
+         function BuKa(type,alias, cardNumber, gasAmount, count, price, money, pricedate) {
+             alert(type +"|"+alias + "|" + cardNumber + "|" + gasAmount + "|" + count + "|" + price + "|" + money + "|" + pricedate);
+             //天顺 ,莱德
+             if (alias == "5" || alias == "6") {
+                 var factory = aliasConvert(alias);
+                 //初始化卡
+                 if (type == "初始化卡") {
+                     document.forms[0].tsCard.AoteFormatCard(factory);
+                     return InitCard(alias, cardNumber, gasAmount, count, price, money, pricedate)
+                 }
+                 //购气卡
+                 else {
+                     document.forms[0].tsCard.AoteFormatCard(factory);
+                     var tsRen = document.forms[0].tsCard.AoteReNewCard(factory, cardNumber, gasAmount, money, price, count, price, pricedate, 1);
+                     if (tsRen == "0") {
+                         return "{isValid:true,BuyTimes:'" + count + "'}";
+                     }
+                     else {
+                         alert("补卡失败!");
+                         return "{isValid:false,tishi:'补卡失败!'}";
+                     }
+                 }
+             }
+             //无锡只能补不带初始化
+             if (alias == "3" && type == "不带初始化") {
+                 var wxren = document.forms[0].gasCard.mendCard(cardNumber, gasAmount, 1, alias);
+                 if (wxren == "0") {
+                     return "{isValid:true,BuyTimes:'" + 1 + "'}";
+                 }
+                 else {
+                     alert("补卡失败!");
+                     return "{isValid:false,tishi:'补卡失败!'}";
+                 }
+             }
+             else {
+                 var otherren = document.forms[0].gasCard.makeCard(cardNumber, gasAmount, count, alias);
+                 if (otherren == "0") {
+                     return "{isValid:true,BuyTimes:'" + count + "'}";
+                 }
+                 else {
+                     alert("补卡失败!");
+                     return "{isValid:false,tishi:'补卡失败!'}";
+                 }
+             }
+         }
+         
+
+
+
+         //读卡
+         function ReadCard(alias) {
+             var changjia = alias;
+             if (alias == "5" || alias == "6") {
+                
+                 var ren = document.forms[0].tsCard.AoteReadCard();
+                 alert(ren);
+                 if (ren == 0) {
+                     var tsCardId = document.forms[0].tsCard.GetCardId();
+                     var tsGas = document.forms[0].tsCard.GetGas();
+                     var tsTimes = document.forms[0].tsCard.GetTimes();
+                     return "{isValid:true,CardId:'" + tsCardId + "',Factory:'"+alias+"',Gas:'" + tsGas + "',BuyTimes:'" + tsTimes + "'}";
+                 }
+                 else {
+                     return "{isValid:false,tishi:'读卡失败!'}";
+                 }
+             }
+             else {
+                 var cardid = document.forms[0].gasCard.getCardID(alias);
+                 var purchaseAmount1 = 0;
+                 purchaseAmount1 = document.forms[0].gasCard.getPurchaseAmount(alias);
+                 var cardcount = document.forms[0].gasCard.getCount(alias);
+                 return "{isValid:true,CardId:'" + cardid + "',Factory:'" + alias + "',Gas:'" + purchaseAmount1 + "',BuyTimes:'" + cardcount + "'}";
+             }
+         }
+         
+         /**
+         //打印发票
+         function printfp(userName, cardId, sellgasGas, userlevelId, money, lsid, opSpot, opId, wgfMoney, caChineseMoney, startDate, endDate, meterTypesId, operateDate) {
+             userName = userName.replace('#', '号');
+             var strs = "userName=" + userName + "&cardId=" + cardId + "&sellgasGas=" + sellgasGas + "&userlevelId=" + userlevelId + "&money=" + money + "&lsid=" + lsid + "&opSpot=" + opSpot + "&opId=" + opId + "&wgfMoney=" + wgfMoney + "&caChineseMoney=" + caChineseMoney + "&startDate=" + startDate + "&endDate=" + endDate + "&meterTypesId=" + meterTypesId + "&operateDate=" + operateDate;
+             window.open("发票打印.html?" + strs);
+             return "{isValid:true}";
+         }
+
+         //打印折子
+         function printzz(f_userid, f_username, f_districtname, f_address, f_gaswatchbrand, f_gasmetermanufacturers, f_meternumber, f_gasmeteraccomodations, f_date) {
+             f_username = f_username.replace('#', '号');
+             var strs = "f_userid=" + f_userid + "&f_username=" + f_username + "&f_districtname=" + f_districtname + "&f_address=" + f_address + "&f_gaswatchbrand=" + f_gaswatchbrand + "&f_gasmetermanufacturers=" + f_gasmetermanufacturers + "&f_meternumber=" + f_meternumber + "&f_gasmeteraccomodations=" + f_gasmeteraccomodations + "&f_date=" + f_date ;
+             window.open("折子用户信息打印.html?" + strs);
+             return "{isValid:true}";
+         }
+
+         //打印折子行信息
+         function printzzrow(row, f_username, f_districtname, f_address, f_gaswatchbrand, f_gasmetermanufacturers, f_meternumber, f_gasmeteraccomodations, f_date) {
+              var strs = "row="+row+"&f_username=" + f_username + "&f_districtname=" + f_districtname + "&f_address=" + f_address + "&f_gaswatchbrand=" + f_gaswatchbrand + "&f_gasmetermanufacturers=" + f_gasmetermanufacturers + "&f_meternumber=" + f_meternumber + "&f_gasmeteraccomodations=" + f_gasmeteraccomodations + "&f_date=" + f_date;
+             alert(strs);
+             window.open("折子行信息打印.html?" + strs);
+             return "{isValid:true}";
+         }
+	   **/
+     </script>
+
+</head>
+<body>
+<form>
+     <!--杭州，仁和ocx-->
+      <OBJECT classid="clsid:00F55F25-6BCC-44F5-AD4B-7F98CC22DEFE" name="gasCard" id="gasCard" width="0" height="0"   ></OBJECT>
+    <!--天顺,莱德  -->
+    <OBJECT classid="clsid:1315AB82-6541-4BC2-80C1-DD2929509F20"   id="tsCard"   style="height:0px;width:0px;border:0px" ></OBJECT>
+    <!--折子-->
+    <OBJECT classid="clsid:BA788FD0-A8C0-4F71-872B-23249215D6AD" name="gasFold" id="gasFold" width="0" height="0"/></OBJECT>
+  
+
+    <form id="form1" runat="server" style="height:100%">
+    
+   
+
+    <!--日志输出区域
+    <textarea id="msg" rows="5" cols="100" wrap="off"></textarea>-->
+    <div id="silverlightControlHost">
+        <object id="sl" data="data:application/x-silverlight-2," type="application/x-silverlight-2" width="100%" height="100%">
+		  <param name="source" value="ClientBin/s2.xap"/>
+		  <param name="onError" value="onSilverlightError" />
+		  <param name="background" value="white" />
+		  <param name="minRuntimeVersion" value="5.0.60401.0" />
+		  <param name="autoUpgrade" value="true" />
+		  <a href="http://go.microsoft.com/fwlink/?LinkID=149156&v=5.0.60401.0" style="text-decoration:none">
+ 			  <img src="http://go.microsoft.com/fwlink/?LinkId=161376" alt="Get Microsoft Silverlight" style="border-style:none"/>
+		  </a>
+	    </object><iframe id="_sl_historyFrame" style="visibility:hidden;height:0px;width:0px;border:0px"></iframe></div>
+    </form>
+</body>
+</html>

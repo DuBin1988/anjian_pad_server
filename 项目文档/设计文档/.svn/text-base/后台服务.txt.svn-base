@@ -1,0 +1,45 @@
+GET
+
+/ - 获取类型信息
+
+/{hql} - 执行hql语句
+
+/one/{hql} - 获取单个对象的hql
+
+/sql/{sql} - 执行sql语句
+
+/file/{blobid} - 获取图片
+
+/{hql}/{sumNames} - 执行hql求和
+
+/sql/{sql}/{sumNames} - 执行sql求和
+
+/agg/{hql}/{attrname} - 带求和等计算方式，执行hql
+
+/one/{hql}/{attrname} - 带求和等计算方式，执行取单个值hql
+
+/sernum/{hql}/{attrname} - 获取编号
+
+/{hql}/{pageIndex}/{pageSize} - 分页执行的hql 
+
+/sql/{sql}/{pageIndex}/{pageSize} - 分页执行sql
+
+/{hql}/{attrname}/{pageIndex}/{pageSize} - 分页执行带求和等计算字段
+
+POST
+
+/ - 执行一批对象操作
+
+/savefile - 保存文件
+
+/{entity} - 保存单个对象
+
+/{entity}/{id} - 删除id对象
+
+hql/{pageIndex}/{pageSize} - POST方式执行hql的分页查询
+
+hql/{sumNames} - POST方式执行hql求和
+
+sql/{sumNames} - POST方式执行sql求和
+
+sql/{names}/{pageIndex}/{pageSize} - POST方式执行的sql分页查询

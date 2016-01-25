@@ -1,0 +1,132 @@
+﻿<UserControl x:Class="s2.Pages.安检员任务完成情况" FontSize="13"
+    mc:Ignorable="d" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:a="clr-namespace:Com.Aote.Attachs;assembly=s2DLL"
+    xmlns:o="clr-namespace:Com.Aote.ObjectTools;assembly=s2DLL"
+	xmlns:oo="clr-namespace:Com.Aote.ObjectTools"
+    xmlns:v="clr-namespace:s2.Pages"
+    xmlns:b="clr-namespace:Com.Aote.Behaviors;assembly=s2DLL"
+	xmlns:c="clr-namespace:Com.Aote.Controls;assembly=s2DLL"
+    xmlns:m="clr-namespace:Com.Aote.Marks;assembly=s2DLL"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+    xmlns:data="clr-namespace:System.Windows.Data;assembly=System.Windows"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit">
+   
+    <Grid x:Name="LayoutRoot">
+        <m:ResourceLoad x:Name="pageResource">
+            <o:ChildWindowObj Name="planDialog" CWName="/Pages/获取计划" />
+             <o:ObjectList Name="conditionlist" EntityType="paramvalue" HasEmptyRow="True" WebClientInfo="{StaticResource dbclient}" Path="from paramvalue where param.name='安检状态'"/>
+
+        </m:ResourceLoad>
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="7*"></RowDefinition>
+                <RowDefinition Height="25"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+
+            </Grid.ColumnDefinitions>
+            <c:BusyIndicatorEx BusyContent="正在提取数据，请稍等" IsBusy="{m:Exp Str=paperGrid.ItemsSource.IsBusy}" Grid.Row="0" Grid.Column="0">
+                <toolkit:DockPanel LastChildFill="True" >
+                    <Grid Background="#FFDBE4F3" toolkit:DockPanel.Dock="Top"   x:Name="areafilesearch">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80"/>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="80"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="80"/>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="80"/>
+                        </Grid.ColumnDefinitions>
+                        <a:Data.Context>
+                            <o:SearchObject>
+                                <o:PropertySetter PropertyName="CHECKPLAN_ID"  Operator="CHECKPLAN_ID = 'this'" Value="{m:Exp Str=planDialog.Result.id}"/>
+                            </o:SearchObject>
+                        </a:Data.Context>
+                        <TextBlock TextWrapping="Wrap" Text="安检计划：" Margin="5,4,0,4" FontSize="13.333" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" />
+                        <TextBox TextWrapping="Wrap" IsReadOnly="True" Text="{m:Bind Path=CHECKPLAN_NAME}" Width="150" Margin="0" Height="25"  Grid.Row="0" Grid.Column="1">
+                            <a:Data.Context>
+                                <o:SearchObject>
+                                    <o:PropertySetter PropertyName="CHECKPLAN_NAME"   Value="{m:Exp Str=planDialog.Result.f_name}"/>
+                                </o:SearchObject>
+                            </a:Data.Context>
+                        </TextBox>
+                        <TextBlock TextWrapping="Wrap" Grid.Row="0" Text="安检开始日期：" Margin="0,7,0,1"  HorizontalAlignment="Right" Grid.Column="3"/>
+                        <sdk:DatePicker SelectedDate="{m:Bind Path=f_anjianriqi}" Margin="0"  Height="25" VerticalAlignment="Stretch" Grid.Row="0" Grid.Column="4" >
+                            <a:Data.Prop>
+                                <o:PropertySetter PropertyName="f_anjianriqi" Value="{m:Exp Str=SysTime.MonthsBeforeToday(1)}"
+								Operator=" substring(ARRIVAL_TIME,1,10) >= substring('this',1,10)"/>
+                            </a:Data.Prop>
+                        </sdk:DatePicker>
+                        <TextBlock TextWrapping="Wrap" Grid.Row="0" Text="安检截至日期：" Margin="0,7,0,1"  HorizontalAlignment="Right" Grid.Column="5"/>
+                        <sdk:DatePicker SelectedDate="{m:Bind Path=f_anjianriqi2}" Margin="0"  Height="25" VerticalAlignment="Stretch" Grid.Row="0" Grid.Column="6" >
+                            <a:Data.Prop>
+                                <o:PropertySetter PropertyName="f_anjianriqi2" Value="{m:Exp Str=SysTime.Today}"
+								Operator=" substring(ARRIVAL_TIME,1,10) ^= substring('this',1,10)"/>
+                            </a:Data.Prop>
+                        </sdk:DatePicker>
+                        <Button Content="选取计划" Click="{m:Exp Str=planDialog.IsOpen\=True}"  Height="30"  Grid.Row="0" Grid.Column="2" Margin="5,0" />
+                        
+                        
+                        <TextBlock TextWrapping="Wrap" Text="安检员：" Margin="0,5,0,1" FontSize="13.333"  Grid.Row="0" Grid.Column="7"  HorizontalAlignment="Right"/>
+                        <TextBox TextWrapping="Wrap" Text="{m:Bind Path=SAVE_PEOPLE}" Width="150" Margin="0,2,0,-1" Height="25"  Grid.Row="0" Grid.Column="8">
+                            <a:Data.Prop>
+                                <o:PropertySetter PropertyName="SAVE_PEOPLE"  Operator="SAVE_PEOPLE like '%this%'"/>
+                            </a:Data.Prop>
+                        </TextBox>
+                        <Button x:Name="btnSearch" Content="查 询" Click="{m:Exp Str=areafilesearch.DataContext.Search()}"  Height="30" Width="70" Style="{StaticResource 查询btn}" Grid.Column="9" Margin="0,0,0,0" Grid.Row="0"/>
+                    </Grid>
+                    <sdk:DataGrid x:Name="paperGrid" 
+							AutoGenerateColumns="False" Width="Auto" Background="{x:Null}" IsReadOnly="True" Margin="0"   >
+                        <a:Data.Items>
+                            <o:PagedList x:Name="paperList" WebClientInfo="{StaticResource dbclient}" Path="sql" Names="hehe,ZHU,WR,JJ,ZC,CONDITION,ROAD,UNIT_NAME,CUS_DOM,CUS_DY,CUS_FLOOR,CUS_ROOM,SAVE_PEOPLE,USER_NAME"
+                                 HQL="{m:Exp Str=$select count(condition) hehe\, (select COUNT(condition) from T_INSPECTION where \{areafilesearch.DataContext.Condition\}) ZHU\,(select COUNT(condition) from T_INSPECTION where CONDITION \= \'无人\' and \{areafilesearch.DataContext.Condition\}) WR\,(select COUNT(condition) from T_INSPECTION where CONDITION \= \'拒绝\' and \{areafilesearch.DataContext.Condition\}) JJ \,(select COUNT(condition) from T_INSPECTION where CONDITION \= \'正常\' and \{areafilesearch.DataContext.Condition\}) ZC\, CONDITION\,ROAD\,UNIT_NAME\,CUS_DOM\,CUS_DY\,CUS_FLOOR\,CUS_ROOM\,SAVE_PEOPLE\,USER_NAME from T_INSPECTION  where \{areafilesearch.DataContext.Condition\} group by CONDITION\,ROAD\,UNIT_NAME\,CUS_DOM\,CUS_DY\,CUS_FLOOR\,CUS_ROOM\,SAVE_PEOPLE\,USER_NAME$}"
+				SumHQL="{m:Exp Str=$select CONDITION\,ROAD\,UNIT_NAME\,CUS_DOM\,CUS_DY\,CUS_FLOOR\,CUS_ROOM\,SAVE_PEOPLE\,USER_NAME from T_INSPECTION t where \{areafilesearch.DataContext.Condition\}$}"
+				        
+                                PageIndex="0" PageSize="10000000" SumNames=","/>
+                        </a:Data.Items>
+
+                        <sdk:DataGrid.Columns>
+                            <sdk:DataGridTextColumn d:IsLocked="True" Header="序号" Binding="{Binding Index}"/>
+                            <sdk:DataGridTextColumn Header="是否安检" Binding="{Binding CONDITION}"/>
+                            <sdk:DataGridTextColumn Header="街  道" Binding="{Binding ROAD}"/>
+                                <sdk:DataGridTextColumn Header="小  区" Binding="{Binding UNIT_NAME}"/>
+                                <sdk:DataGridTextColumn Header="楼  号" Binding="{Binding CUS_DOM}"/>
+                                <sdk:DataGridTextColumn Header="单  元" Binding="{Binding CUS_DY}"/>
+                                <sdk:DataGridTextColumn Header="楼  层" Binding="{Binding CUS_FLOOR}"/>
+                                <sdk:DataGridTextColumn Header="房  号" Binding="{Binding CUS_ROOM}"/>
+                            <sdk:DataGridTextColumn Header="安检人" Binding="{Binding SAVE_PEOPLE}"/>
+                            <sdk:DataGridTextColumn Header="用户" Binding="{Binding USER_NAME}"/>
+                        </sdk:DataGrid.Columns>
+                    </sdk:DataGrid>
+                </toolkit:DockPanel >
+            </c:BusyIndicatorEx>
+            <toolkit:DockPanel Grid.Row="1" HorizontalAlignment="Left">
+                <TextBlock VerticalAlignment="Center">总户数</TextBlock>
+                <TextBox x:Name="zonghushu" Width="80" IsEnabled="False"/>
+                <TextBlock VerticalAlignment="Center">入户</TextBlock>
+                <TextBox x:Name="anjianhushu" Width="80" IsEnabled="False"/>
+                <TextBlock VerticalAlignment="Center">拒检</TextBlock>
+                <TextBox x:Name="jujianhushu" Width="80" IsEnabled="False"/>
+                <TextBlock VerticalAlignment="Center">无人</TextBlock>
+                <TextBox x:Name="wurenhushu" Width="80" IsEnabled="False"/>
+                <TextBlock VerticalAlignment="Center">安检完成率</TextBlock>
+                <TextBox x:Name="anjianlv" Width="120" IsEnabled="False"/>               
+            </toolkit:DockPanel>
+           
+        </Grid>
+    </Grid>
+</UserControl>

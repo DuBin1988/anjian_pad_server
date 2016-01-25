@@ -1,0 +1,260 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+
+<head>
+    <title>打印</title>
+    <style type="text/css">
+    html, body {
+	    height: 100%;
+	    overflow: auto;
+    }
+    body {
+	    padding: 0;
+	    margin: 0;
+    }
+    #silverlightControlHost {
+	    height: 100%;
+	    text-align:center;
+    }
+    #Layer1 {
+	position:absolute;
+	width:181px;
+	height:25px;
+	z-index:1;
+	top: 5px;
+	left: -5px;
+}
+    #Layer2 {
+	position:absolute;
+	width:174px;
+	height:20px;
+	z-index:2;
+	left: 8px;
+	top: 38px;
+}
+    #Layer3 {
+	position:absolute;
+	width:176px;
+	height:23px;
+	z-index:3;
+	left: -115px;
+	top: 68px;
+}
+    #Layer4 {
+	position:absolute;
+	width:175px;
+	height:16px;
+	z-index:1;
+	left: 108px;
+	top: 64px;
+}
+    #Layer5 {
+	position:absolute;
+	width:175px;
+	height:21px;
+	z-index:2;
+	top: 82px;
+}
+    #Layer6 {
+	position:absolute;
+	width:178px;
+	height:22px;
+	z-index:3;
+	top: 103px;
+}
+    #Layer7 {
+	position:absolute;
+	width:169px;
+	height:22px;
+	z-index:4;
+	left: 48px;
+	top: 42px;
+}
+    #Layer8 {
+	position:absolute;
+	width:62px;
+	height:21px;
+	z-index:5;
+	top: 103px;
+}
+    #Layer9 {
+	position:absolute;
+	width:89px;
+	height:22px;
+	z-index:6;
+	top: 103px;
+	left: 466px;
+}
+    #Layer10 {
+	position:absolute;
+	width:183px;
+	height:18px;
+	z-index:7;
+	top: 147px;
+	left: 108px;
+}
+    #Layer11 {
+	position:absolute;
+	width:190px;
+	height:19px;
+	z-index:8;
+	top: 17px;
+	left: 48px;
+}
+    #Layer12 {
+	position:absolute;
+	width:98px;
+	height:17px;
+	z-index:9;
+	top: 126px;
+}
+    #Layer13 {
+	position:absolute;
+	width:67px;
+	height:16px;
+	z-index:10;
+	top: 126px;
+}
+    #Layer14 {
+	position:absolute;
+	width:90px;
+	height:15px;
+	z-index:11;
+	top: 127px;
+}
+    </style>
+    <script type="text/javascript" src="Silverlight.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript">
+	
+	    function getUrlParams(){
+                var paramjson="" ;
+                urlParamStr=location.search.substr(1);  //substr(1)去除?号
+                subParamStr=urlParamStr.split("&");  //以"&"为标志分割字符串
+              for(var i=0 ;i<subParamStr.length;i++)
+                {
+                    spKey=subParamStr[i].split("=")[0];
+                    spVal=subParamStr[i].split("=")[1];
+                    if(paramjson==""){
+                        paramjson=paramjson+"\""+spKey+"\":\""+spVal+"\"";
+                     }else{
+                        paramjson=paramjson+",\""+spKey+"\":\""+spVal+"\"";
+                     }
+			    }
+                paramjson="{"+paramjson+"}"
+				//alert(paramjson);
+				 var str = eval("(" + paramjson + ")");
+                var jsonobj = eval(str);
+			    return jsonobj;
+            };
+        
+        //调用银光方法获得json对象，把对象值放到页面输入框
+        function callSL() {
+           var paramjson = getUrlParams();
+		   var elements = $("[type=text]");
+            for (var i = 0; i < elements.length; i++) {
+                var element = elements[i];
+                var name = element.name;
+                //获得对象中的字段值
+                var stat = "var value=paramjson." + name;
+                eval(stat);
+						//		alert(name+"  " +value);
+
+                //把结果给输入框
+                if (value != undefined) {
+                    element.innerHTML = value;
+                } else {
+                    element.innerHTML = "";
+                }
+            }
+		    //判断表厂型号，如果等于13.14.15.16，则气量设置为0
+			eval("var METER_TYPES_ID = paramjson.meterTypesId");
+			if(METER_TYPES_ID=="13" || METER_TYPES_ID=="14" || METER_TYPES_ID=="15" || METER_TYPES_ID=="16"){
+				var sellgasGas = $("[name=sellgasGas]");
+				sellgasGas[0].innerHTML = "0";
+			}
+		    //打印
+            wb.execwb(6, 2, 3)
+          //  window.print();
+            window.close();
+			
+		   
+        }
+    </script>
+</head>
+<body onload="callSL()">
+<OBJECT classid="CLSID:8856F961-340A-11D0-A96B-00C04FD705A2" 
+height="0" id="wb" name="wb" width="0"></OBJECT> 
+ 
+<table width="702px" height="271" border="0" cellpadding="0" cellspacing="0" style="font-size:13px;">
+  <tr>
+    <td height="22">&nbsp;</td>
+    <td colspan="6" valign="bottom">西安市长安天然气有限公司</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td colspan="6" type="text" name="operateDate">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="1" width="50">&nbsp;</td>
+	<td width="15">&nbsp;</td>
+    <td width="130">&nbsp;</td>
+    <td width="65">&nbsp;</td>
+    <td width="130">&nbsp;</td>
+    <td width="65">&nbsp;</td>
+    <td width="247">&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2">名称</td>
+    <td colspan="5" type="text" name="userName">&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2">卡号</td>
+    <td type="text" name="cardId">&nbsp;</td>
+    <td>收费类型</td>
+    <td>气费</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2">气量</td>
+    <td type="text" name="sellgasGas">&nbsp;</td>
+    <td>单价</td>
+    <td type="text" name="userlevelId">&nbsp;</td>
+    <td>金额</td>
+    <td type="text" name="money">&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2">流水号</td>
+    <td type="text" name="lsid">&nbsp;</td>
+    <td>机器号</td>
+    <td type="text" name="opSpot">&nbsp;</td>
+    <td>操作员号</td>
+    <td type="text" name="opId">&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2">维管费</td>
+    <td type="text" name="wgfMoney"></td>
+    <td>起始日期</td>
+    <td type="text" name="startDate">&nbsp;</td>
+    <td>缴至日期</td>
+    <td type="text" name="endDate">&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2">金额大写</td>
+    <td colspan="5" type="text" name="caChineseMoney">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="22" colspan="7">&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="4">销售单位：西安市长安天然气有限公司</td>
+    <td colspan="3">纳税人识别号：610116750202779</td>
+  </tr>
+  <tr>
+    <td colspan="4">地址：西安市长安区韦曲街办上塔坡村通塔坡路北</td>
+    <td colspan="3">电话：85295450</td>
+  </tr>
+</table>
+</body>
+</html>

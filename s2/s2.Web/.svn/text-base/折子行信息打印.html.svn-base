@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+
+<head>
+    <title>打印</title>
+    <style type="text/css">
+    html, body {
+	    height: 100%;
+	    overflow: auto;
+    }
+    body {
+	    padding: 0;
+	    margin: 0;
+    }
+    #silverlightControlHost {
+	    height: 100%;
+	    text-align:center;
+    }
+    #Layer1 {
+	position:absolute;
+	width:181px;
+	height:25px;
+	z-index:1;
+	top: 5px;
+	left: -5px;
+}
+    #Layer2 {
+	position:absolute;
+	width:174px;
+	height:20px;
+	z-index:2;
+	left: 8px;
+	top: 38px;
+}
+    #Layer3 {
+	position:absolute;
+	width:176px;
+	height:23px;
+	z-index:3;
+	left: -115px;
+	top: 68px;
+}
+    #Layer4 {
+	position:absolute;
+	width:175px;
+	height:16px;
+	z-index:1;
+	left: 108px;
+	top: 64px;
+}
+    #Layer5 {
+	position:absolute;
+	width:175px;
+	height:21px;
+	z-index:2;
+	top: 82px;
+}
+    #Layer6 {
+	position:absolute;
+	width:178px;
+	height:22px;
+	z-index:3;
+	top: 103px;
+}
+    #Layer7 {
+	position:absolute;
+	width:169px;
+	height:22px;
+	z-index:4;
+	left: 48px;
+	top: 42px;
+}
+    #Layer8 {
+	position:absolute;
+	width:62px;
+	height:21px;
+	z-index:5;
+	top: 103px;
+}
+    #Layer9 {
+	position:absolute;
+	width:89px;
+	height:22px;
+	z-index:6;
+	top: 103px;
+	left: 466px;
+}
+    #Layer10 {
+	position:absolute;
+	width:183px;
+	height:18px;
+	z-index:7;
+	top: 147px;
+	left: 108px;
+}
+    #Layer11 {
+	position:absolute;
+	width:190px;
+	height:19px;
+	z-index:8;
+	top: 17px;
+	left: 48px;
+}
+    #Layer12 {
+	position:absolute;
+	width:98px;
+	height:17px;
+	z-index:9;
+	top: 126px;
+}
+    #Layer13 {
+	position:absolute;
+	width:67px;
+	height:16px;
+	z-index:10;
+	top: 126px;
+}
+    #Layer14 {
+	position:absolute;
+	width:90px;
+	height:15px;
+	z-index:11;
+	top: 127px;
+}
+    </style>
+    <script type="text/javascript" src="Silverlight.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript">
+	
+	    function getUrlParams(){
+                var paramjson="" ;
+                urlParamStr=location.search.substr(1);  //substr(1)去除?号
+                subParamStr=urlParamStr.split("&");  //以"&"为标志分割字符串
+              for(var i=0 ;i<subParamStr.length;i++)
+                {
+                    spKey=subParamStr[i].split("=")[0];
+                    spVal=subParamStr[i].split("=")[1];
+                    if(paramjson==""){
+                        paramjson=paramjson+"\""+spKey+"\":\""+spVal+"\"";
+                     }else{
+                        paramjson=paramjson+",\""+spKey+"\":\""+spVal+"\"";
+                     }
+			    }
+                paramjson="{"+paramjson+"}"
+				//alert(paramjson);
+				 var str = eval("(" + paramjson + ")");
+                var jsonobj = eval(str);
+			    return jsonobj;
+            };
+        
+        //调用银光方法获得json对象，把对象值放到页面输入框
+        function callSL() {
+           var paramjson = getUrlParams();
+           var row = "var rownum=paramjson.row"  ;
+		    eval(row);
+		     //alert(name + "  " + value);
+             var row =rownum;
+             alert(row);
+          	 
+		   var elements =$("#"+row+" >[type=text]");
+            for (var i = 0; i < elements.length; i++) {
+                var element = elements[i];
+                var name = element.name;
+                //获得对象中的字段值
+                var stat = "var value=paramjson." + name;
+                eval(stat);
+						//		alert(name+"  " +value);
+
+                //把结果给输入框
+                if (value != undefined) {
+                    element.innerHTML = value;
+                } else {
+                    element.innerHTML = "";
+                }
+            }
+			**/
+		    
+		    //打印
+          //  wb.execwb(6, 2, 3)
+          //  window.print();
+           // window.close();
+			
+		   
+        }
+    </script>
+</head>
+<body onload="callSL()">
+<OBJECT classid="CLSID:8856F961-340A-11D0-A96B-00C04FD705A2" 
+height="0" id="wb" name="wb" width="0"></OBJECT> 
+ 
+<table width="702px" height="271" border="0" cellpadding="0" cellspacing="0" style="font-size:13px;">
+  <tr  id="1">
+    <td type="text">&nbsp;</td>
+    <td type="text">&nbsp;</td>
+    <td type="text">&nbsp;</td>
+    <td type="text">&nbsp;</td>
+    <td type="text">&nbsp;</td>
+    <td type="text" >&nbsp;</td>
+    <td type="text">&nbsp;</td>
+  </tr>
+   </tr>
+</table>
+</body>
+</html>

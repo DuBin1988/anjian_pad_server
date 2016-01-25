@@ -1,0 +1,5 @@
+D:\workspace3.5\anjian\s2\s2.Web\bin\s2.Web.dll
+D:\workspace3.5\anjian\s2\s2.Web\bin\s2.Web.pdb
+D:\workspace3.5\anjian\s2\s2.Web\obj\Debug\s2.Web.dll
+D:\workspace3.5\anjian\s2\s2.Web\obj\Debug\s2.Web.pdb
+D:\workspace3.5\anjian\s2\s2.Web\obj\Debug\s2.Web.csprojResolveAssemblyReference.cache

@@ -1,0 +1,1 @@
+秦华要求将客户和pad串号关联。在此利用了t_user表中的两个字段f_content, forumlogin存放PAD串号和是否关联。
